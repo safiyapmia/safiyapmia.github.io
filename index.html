@@ -1,310 +1,264 @@
-<!-- redeploy v8 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Safiya Palesa Mia — E‑Portfolio</title>
-  <meta name="description" content="Final‑year Mechatronic Engineering student — playful, bold, interactive portfolio of projects, artefacts, and personal statements." />
+  <meta name="description" content="Final‑year Mechatronic Engineering student. A calm, thoughtful portfolio: projects, artefacts, and a short personal statement." />
   <meta name="author" content="Safiya Palesa Mia" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      /* brighter, bolder palette */
-      --bg:#060816; --bg2:#0a0f2e; --card:#10163d; --text:#f7f9ff; --muted:#cfe2ff;
-      --pink:#ff6ad5; --cyan:#29e3ff; --lime:#a7ff4d; --violet:#a78bfa; --orange:#ffb34d;
+      /* Calm, readable palette */
+      --bg:#ffffff;           /* paper white */
+      --ink:#0f172a;          /* slate-900 */
+      --muted:#475569;        /* slate-600 */
+      --line:#e2e8f0;         /* slate-200 */
+      --card:#f8fafc;         /* slate-50 */
+      --accent:#0ea5e9;       /* sky-600 */
+      --accent-ink:#0b1324;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(1200px 900px at 20% -10%, #1a1f55 0%, var(--bg2) 50%),radial-gradient(900px 600px at 120% 0%, #2b1b56 0%, transparent 60%),var(--bg);color:var(--text);line-height:1.65}
-
-    /* playful gradient blobs */
-    .bg-blobs::before,.bg-blobs::after{content:"";position:fixed;inset:auto auto 6% -10%;width:60vmax;height:60vmax;border-radius:50%;filter:blur(60px);z-index:-1;opacity:.45}
-    .bg-blobs::before{background:radial-gradient(circle at 30% 30%, var(--pink), transparent 60%)}
-    .bg-blobs::after{left:auto;right:-10%;bottom:5%;background:radial-gradient(circle at 70% 70%, var(--cyan), transparent 60%)}
-
-    a{color:var(--cyan);text-decoration:none}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
+    a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
-    header{position:sticky;top:0;backdrop-filter:saturate(160%) blur(8px);background:linear-gradient(to bottom, rgba(6,8,22,.92), rgba(6,8,22,.55));border-bottom:1px solid rgba(255,255,255,.08);z-index:50}
-    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px}
-    .nav a{margin:0 10px;color:var(--muted);font-weight:700}
-    .brand{display:flex;gap:10px;align-items:center}
-    .brand .logo{width:40px;height:40px;border-radius:12px;background:conic-gradient(from 0deg,var(--pink),var(--cyan),var(--lime),var(--violet),var(--orange));box-shadow:0 8px 24px rgba(255,106,213,.35)}
-    .brand span{font-weight:900;color:var(--text)}
-    .btn{display:inline-block;padding:12px 16px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--cyan));color:#06101a;font-weight:900;letter-spacing:.2px;box-shadow:0 10px 24px rgba(41,227,255,.35);transition:transform .08s ease}
-    .btn:hover{transform:translateY(-1px)}
 
-    .container{max-width:1100px;margin:0 auto;padding:40px 20px}
-    .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10);border-radius:20px;padding:22px}
-    .shadow{box-shadow:0 10px 30px rgba(0,0,0,.4)}
+    /* Header */
+    header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--line);z-index:20}
+    .nav{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+    .nav a{margin:0 10px;color:var(--muted);font-weight:600}
+    .brand{font-weight:800;color:var(--ink)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;border:1px solid transparent}
+    .btn.secondary{background:#fff;color:var(--accent);border-color:var(--accent)}
 
-    /* HERO */
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:50px 0}
-    h1{font-size:clamp(30px,5vw,54px);line-height:1.12;margin:0}
-    .tagline{font-size:clamp(14px,1.6vw,18px);color:var(--muted);margin:.6rem 0 1.2rem}
-    .marquee{overflow:hidden;border-radius:12px;border:1px dashed rgba(255,255,255,.2);padding:8px 0;margin:10px 0 20px}
-    .track{display:flex;gap:30px;white-space:nowrap;animation:scroll 18s linear infinite}
-    .tag{padding:6px 12px;border-radius:999px;font-weight:800;color:#06101a;background:linear-gradient(135deg,var(--lime),var(--cyan))}
-    @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    /* Layout */
+    .container{max-width:980px;margin:0 auto;padding:28px 16px}
+    .section{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:22px}
+    h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:0}
+    h2{font-size:clamp(22px,3vw,28px);margin:0 0 12px}
+    p{margin:.4rem 0 .8rem}
 
-    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:.6rem 0 1.2rem}
-    .chip{padding:7px 11px;background:linear-gradient(135deg,rgba(255,106,213,.15),rgba(41,227,255,.15));border:1px solid rgba(255,255,255,.18);border-radius:999px;color:var(--text);font-weight:700;font-size:12.5px}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
+    .hero img{width:100%;border-radius:12px;border:1px solid var(--line);object-fit:cover;aspect-ratio:16/10}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:.6rem 0 1.2rem}
+    .chip{padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-weight:600;font-size:12.5px;background:#fff}
 
-    /* sections */
-    h2{font-size:clamp(24px,3vw,32px);margin:18px 0}
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    /* Simple grid */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
     .col-6{grid-column:span 6}
     .col-12{grid-column:span 12}
 
-    /* Manifesto / personal statements */
-    .manifesto{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-    .mf{grid-column:span 4;background:linear-gradient(135deg,rgba(255,106,213,.12),rgba(41,227,255,.12));border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:16px}
-    .mf h3{margin:.2rem 0 .3rem;font-size:18px}
-    .mf p{margin:.2rem 0;color:var(--muted)}
-
-    /* timeline */
-    .timeline{position:relative;padding-left:18px}
-    .timeline:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(255,255,255,.16),rgba(255,255,255,.04))}
-    .t-item{position:relative;margin:14px 0;padding-left:8px}
-    .t-item:before{content:"";position:absolute;left:-2px;top:10px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--cyan));box-shadow:0 0 0 3px rgba(255,106,213,.18)}
-    .role{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}
-    .role b{font-size:16px}
-    .when{color:var(--muted);font-weight:700}
-    .org{color:#ffe480;font-weight:800}
-    .list{margin:.4rem 0 .6rem;padding-left:18px}
-
     /* Gallery */
-    .filters{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
-    .filter{padding:8px 12px;border:1px solid rgba(255,255,255,.18);border-radius:999px;color:var(--muted);cursor:pointer}
-    .filter.active{color:#06101a;background:linear-gradient(135deg,var(--pink),var(--cyan));border-color:transparent}
-    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
-    .shot{grid-column:span 4;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden;transform:rotate(var(--rot,0deg));}
-    .shot img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .25s ease}
-    .shot:hover img{transform:scale(1.04)}
-    .shot figcaption{padding:10px 12px;color:var(--muted);font-size:13px}
-    .shot [data-links] a{margin-right:10px}
+    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    .card img{width:100%;height:200px;object-fit:cover;display:block}
+    .card .meta{padding:12px 12px}
+    .meta small{color:var(--muted)}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+    .tag{font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:3px 8px}
 
-    /* Lightbox */
-    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}
-    .lightbox.open{display:flex}
-    .lightbox img{max-width:92vw;max-height:88vh;border-radius:12px}
+    /* Timeline */
+    .timeline{border-left:2px solid var(--line);padding-left:14px}
+    .t{margin:10px 0}
+    .t b{display:block}
+    .when{color:var(--muted);font-weight:600}
 
-    footer{padding:40px 20px;color:var(--muted);text-align:center}
+    footer{padding:40px 16px;text-align:center;color:var(--muted)}
 
     /* Responsive */
-    @media (max-width:920px){.hero{grid-template-columns:1fr}.col-6{grid-column:span 12}.shot{grid-column:span 6}}
-    @media (max-width:640px){.shot{grid-column:span 12}}
+    @media (max-width:900px){.hero{grid-template-columns:1fr}.col-6{grid-column:span 12}}
   </style>
 </head>
-<body class="bg-blobs">
+<body>
   <header>
     <nav class="nav" aria-label="Main">
-      <div class="brand"><div class="logo" aria-hidden="true"></div><span>Safiya Palesa Mia</span></div>
+      <div class="brand">Safiya Palesa Mia</div>
       <div>
         <a href="#about">About</a>
-        <a href="#manifesto">Manifesto</a>
-        <a href="#artefacts">Gallery</a>
-        <a href="#experience">Exp</a>
+        <a href="#gallery">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
-        <a class="btn" href="assets/Safiya_Palesa_Mia_Resume.pdf" target="_blank" rel="noopener">Download CV ↗</a>
+        <a class="btn" href="assets/Safiya_Palesa_Mia_Resume.pdf" target="_blank" rel="noopener">Download CV</a>
       </div>
     </nav>
   </header>
 
   <main class="container">
     <!-- HERO / ABOUT -->
-    <section id="about" class="hero card shadow" aria-labelledby="about-title">
-      <div>
-        <h1 id="about-title">Mechatronics with personality ⚡</h1>
-        <p class="tagline" id="rotator">I design things that move — and move people.</p>
-        <div class="marquee" aria-hidden="true">
-          <div class="track">
-            <span class="tag">Robotics</span><span class="tag">Electronics</span><span class="tag">RPA</span><span class="tag">Control</span><span class="tag">Human‑Centred Design</span><span class="tag">Energy</span>
-            <span class="tag">Robotics</span><span class="tag">Electronics</span><span class="tag">RPA</span><span class="tag">Control</span><span class="tag">Human‑Centred Design</span><span class="tag">Energy</span>
+    <section id="about" class="section">
+      <div class="hero">
+        <div>
+          <h1>Final‑Year Mechatronic Engineering Student</h1>
+          <p style="color:var(--muted)">I’m a curious builder who likes circuits, control, and projects that help people. This site is a snapshot of what I actually made — not a LinkedIn recap.</p>
+          <div class="chips">
+            <span class="chip">Robotics & Control</span>
+            <span class="chip">Electronics</span>
+            <span class="chip">RPA</span>
+            <span class="chip">Community builder</span>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="#gallery">See projects</a>
+            <a class="btn secondary" href="#experience">Highlights</a>
           </div>
         </div>
-        <div class="chips" aria-label="quick facts">
-          <span class="chip">UCT+ Gold Award</span>
-          <span class="chip">AI Society Founder</span>
-          <span class="chip">SARAO Intern</span>
-          <span class="chip">EWB Secretary General</span>
-        </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="#artefacts" class="btn" style="background:linear-gradient(135deg,var(--lime),var(--cyan))">See Gallery</a>
-          <a href="#manifesto" class="btn" style="background:linear-gradient(135deg,var(--orange),var(--pink))">Read My Manifesto</a>
-        </div>
-      </div>
-      <div class="card shadow" style="background:rgba(255,255,255,.03)">
-        <!-- ADMIN NOTE: your images are under /images now -->
-        <img src="images/hero.jpg" alt="Safiya — bright, candid lab/field shot" style="width:100%;border-radius:14px;aspect-ratio:16/10;object-fit:cover" />
-        <p style="color:var(--muted);margin:.8rem 0 0.2rem">Replace with <code>images/hero.jpg</code> in your repo.</p>
+        <img src="images/hero.jpg" alt="Safiya — lab/field photo" />
       </div>
     </section>
 
-    <!-- PERSONAL MANIFESTO / STATEMENTS -->
-    <section id="manifesto" class="card shadow" aria-labelledby="mf-title">
-      <h2 id="mf-title">Personal Manifesto</h2>
-      <div class="manifesto">
-        <div class="mf">
-          <h3>01 · Curiosity is my fuel</h3>
-          <p>I learn by building. I say yes to messy prototypes, oscilloscopes at midnight, and questions that force me to think deeper.</p>
-        </div>
-        <div class="mf">
-          <h3>02 · People over parts</h3>
-          <p>Engineering is for humans. I design with empathy, test with users, and measure success by the impact on real lives.</p>
-        </div>
-        <div class="mf">
-          <h3>03 · Beauty in the details</h3>
-          <p>From a tidy control‑panel to a readable plot — I care about build quality, documentation, and craft.</p>
-        </div>
-      </div>
+    <!-- PERSONAL STATEMENT (short) -->
+    <section class="section" aria-labelledby="ps-title" style="margin-top:18px">
+      <h2 id="ps-title">Personal statement</h2>
+      <p>I learn fastest by building. I like tidy wiring, readable plots, and teams that share ideas openly. My favourite work sits where hardware meets software and people — from oscilloscopes to user workshops.</p>
     </section>
 
-    <!-- GALLERY / ARTEFACTS -->
-    <section id="artefacts" class="card shadow" aria-labelledby="art-title">
-      <h2 id="art-title">Gallery — Evidence of Work</h2>
-      <div class="filters" role="tablist" aria-label="Filter gallery">
-        <button class="filter active" data-filter="all" role="tab">All</button>
-        <button class="filter" data-filter="electronics" role="tab">Electronics</button>
-        <button class="filter" data-filter="lab" role="tab">Lab & Testing</button>
-        <button class="filter" data-filter="industry" role="tab">Industry & Field</button>
-        <button class="filter" data-filter="team" role="tab">Leadership & Team</button>
-      </div>
-
-      <div class="gallery" id="gallery">
-        <!-- NOTE: images folder is now /images/ -->
-        <figure class="shot" data-tags="industry" style="--rot:-1.2deg">
+    <!-- GALLERY / PROJECTS -->
+    <section id="gallery" class="section" style="margin-top:18px" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Projects & artefacts</h2>
+      <div class="gallery">
+        <!-- Each card: image + two-line caption + light tags -->
+        <article class="card col-6">
           <img src="images/sarao-entrance.jpg" alt="At SARAO entrance" />
-          <figcaption><strong>SARAO Internship (2022)</strong> — CNC wiring, PCB test, comms protocols (I²C, SPI, UART). <span data-links></span></figcaption>
-        </figure>
-        <figure class="shot" data-tags="lab" style="--rot:1deg">
-          <img src="images/lab-notes-pink.jpg" alt="Lab notes and laptop" />
-          <figcaption><strong>Lab documentation</strong> — experimental notes & data logging.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="team" style="--rot:-.6deg">
-          <img src="images/ewb-hardhat-portrait.jpg" alt="EWB hardhat portrait" />
-          <figcaption><strong>EWB leadership</strong> — HCD workshop & orientation.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="industry" style="--rot:.8deg">
-          <img src="images/danger-high-voltage.jpg" alt="High voltage site" />
-          <figcaption><strong>Substation visit</strong> — safety & power systems exposure.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="lab electronics" style="--rot:-1deg">
-          <img src="images/lab-panel-work.jpg" alt="Using lab power systems panel" />
-          <figcaption><strong>Power systems lab</strong> — measurement & controls.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="team" style="--rot:.6deg">
-          <img src="images/uct-mechatronics-lab-friends.jpg" alt="Team at UCT Mechatronics lab" />
-          <figcaption><strong>Team collaboration</strong> — lab roles & peer learning.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="team" style="--rot:-1.4deg">
-          <img src="images/uct-mechatronics-sign-selfie.jpg" alt="UCT Mechatronics sign selfie" />
-          <figcaption><strong>Mechatronics community</strong> — society & lab engagement.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="electronics lab" style="--rot:.4deg">
-          <img src="images/oscilloscope-setup.jpg" alt="Oscilloscope and custom PCB on bench" />
-          <figcaption><strong>Signal probing</strong> — oscilloscope debug on custom board.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="electronics" style="--rot:-.7deg">
+          <div class="meta">
+            <b>SARAO internship</b>
+            <small>PCB build/test; CNC wiring; I²C/SPI/UART.</small>
+            <div class="tags"><span class="tag">industry</span><span class="tag">electronics</span></div>
+          </div>
+        </article>
+        <article class="card col-6">
+          <img src="images/oscilloscope-setup.jpg" alt="Oscilloscope and custom PCB" />
+          <div class="meta">
+            <b>Signal probing</b>
+            <small>Oscilloscope debug on custom board.</small>
+            <div class="tags"><span class="tag">lab</span><span class="tag">measurement</span></div>
+          </div>
+        </article>
+        <article class="card col-6">
           <img src="images/breadboard-circuit.jpg" alt="Breadboard discrete circuit" />
-          <figcaption><strong>Discrete circuit build</strong> — prototyping & verification.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="lab team" style="--rot:.3deg">
-          <img src="images/power-systems-lab-group.jpg" alt="Power systems lab group" />
-          <figcaption><strong>Lab delivery</strong> — teamwork under time constraints.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="electronics lab" style="--rot:-.5deg">
-          <img src="images/desktop-breadboard-software.jpg" alt="Breadboard next to software monitoring" />
-          <figcaption><strong>Hardware‑software loop</strong> — instrumentation + analysis.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="industry" style="--rot:1.1deg">
-          <img src="images/workshop-safety-glasses.jpg" alt="Workshop with safety glasses" />
-          <figcaption><strong>Manufacturing workshop</strong> — measurement & fabrication basics.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="lab team" style="--rot:-.9deg">
-          <img src="images/lab-collab-hoodie.jpg" alt="Lab collaboration" />
-          <figcaption><strong>Peer mentoring</strong> — sharing methods and results.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="electronics industry" style="--rot:.5deg">
+          <div class="meta">
+            <b>Discrete circuit build</b>
+            <small>Prototyping & verification.</small>
+            <div class="tags"><span class="tag">electronics</span></div>
+          </div>
+        </article>
+        <article class="card col-6">
           <img src="images/control-panel-wiring.jpg" alt="Industrial control panel wiring" />
-          <figcaption><strong>Control panel wiring</strong> — neat routing, labeling, safety.</figcaption>
-        </figure>
-        <figure class="shot" data-tags="industry" style="--rot:-.2deg">
+          <div class="meta">
+            <b>Control panel wiring</b>
+            <small>Neat routing, labelling, safety.</small>
+            <div class="tags"><span class="tag">industry</span></div>
+          </div>
+        </article>
+        <article class="card col-6">
+          <img src="images/danger-high-voltage.jpg" alt="High voltage site" />
+          <div class="meta">
+            <b>Power systems visit</b>
+            <small>Safety, substations, HV equipment.</small>
+            <div class="tags"><span class="tag">industry</span><span class="tag">energy</span></div>
+          </div>
+        </article>
+        <article class="card col-6">
           <img src="images/wind-turbine-site.jpg" alt="Wind turbine site" />
-          <figcaption><strong>Wind farm visit</strong> — renewable energy systems.</figcaption>
-        </figure>
+          <div class="meta">
+            <b>Wind farm visit</b>
+            <small>Renewable systems & site safety.</small>
+            <div class="tags"><span class="tag">energy</span></div>
+          </div>
+        </article>
+        <article class="card col-6">
+          <img src="images/lab-notes-pink.jpg" alt="Lab notes and laptop" />
+          <div class="meta">
+            <b>Lab documentation</b>
+            <small>Notes & data logging discipline.</small>
+            <div class="tags"><span class="tag">process</span></div>
+          </div>
+        </article>
+        <article class="card col-6">
+          <img src="images/lab-panel-work.jpg" alt="Using lab power systems panel" />
+          <div class="meta">
+            <b>Power systems lab</b>
+            <small>Measurement & controls.</small>
+            <div class="tags"><span class="tag">lab</span></div>
+          </div>
+        </article>
+        <article class="card col-6">
+          <img src="images/uct-mechatronics-lab-friends.jpg" alt="Team at UCT Mechatronics lab" />
+          <div class="meta">
+            <b>Team collaboration</b>
+            <small>Shared methods and results.</small>
+            <div class="tags"><span class="tag">team</span></div>
+          </div>
+        </article>
+        <article class="card col-6">
+          <img src="images/uct-mechatronics-sign-selfie.jpg" alt="UCT Mechatronics sign selfie" />
+          <div class="meta">
+            <b>Mechatronics community</b>
+            <small>Society & lab engagement.</small>
+            <div class="tags"><span class="tag">community</span></div>
+          </div>
+        </article>
+        <article class="card col-6">
+          <img src="images/desktop-breadboard-software.jpg" alt="Breadboard with software monitor" />
+          <div class="meta">
+            <b>Hardware ↔ software loop</b>
+            <small>Instrumentation + analysis.</small>
+            <div class="tags"><span class="tag">lab</span></div>
+          </div>
+        </article>
+        <article class="card col-6">
+          <img src="images/workshop-safety-glasses.jpg" alt="Workshop with safety glasses" />
+          <div class="meta">
+            <b>Manufacturing workshop</b>
+            <small>Measurement & fabrication basics.</small>
+            <div class="tags"><span class="tag">workshop</span></div>
+          </div>
+        </article>
+        <article class="card col-6">
+          <img src="images/lab-collab-hoodie.jpg" alt="Lab collaboration" />
+          <div class="meta">
+            <b>Peer mentoring</b>
+            <small>Teaching and learning in teams.</small>
+            <div class="tags"><span class="tag">team</span></div>
+          </div>
+        </article>
       </div>
-      <p class="tagline" style="margin-top:10px">Add links to reports/slides/repos by placing anchors inside each <code>[data-links]</code> span.</p>
+      <p style="color:var(--muted);margin-top:8px">Tip: link reports/slides/repos inside captions later if you want deeper evidence.</p>
     </section>
 
-    <!-- EXPERIENCE (kept compact) -->
-    <section id="experience" class="card shadow" aria-labelledby="exp-title">
+    <!-- EXPERIENCE (compact) -->
+    <section id="experience" class="section" style="margin-top:18px" aria-labelledby="exp-title">
       <h2 id="exp-title">Experience — highlights</h2>
       <div class="grid">
-        <div class="col-6 timeline">
-          <div class="t-item"><div class="role"><b>Executive Member</b> <span class="org">UCT AI Society</span> <span class="when">· Jun 2023 – Present</span></div><ul class="list"><li>Founded community; ran expert panels.</li></ul></div>
-          <div class="t-item"><div class="role"><b>Secretary General</b> <span class="org">EWB‑UCT</span> <span class="when">· Nov 2022 – Nov 2023</span></div><ul class="list"><li>HCD workshop; first‑year orientation; chapter ops.</li></ul></div>
-          <div class="t-item"><div class="role"><b>Women Accelerate</b> <span class="org">Bain & Co</span> <span class="when">· Dec 2023</span></div><ul class="list"><li>Leadership & strategy intensives.</li></ul></div>
+        <div class="col-6">
+          <div class="timeline">
+            <div class="t"><b>Executive Member — UCT AI Society</b><div class="when">Jun 2023 – Present</div><div>Founded community; ran expert panels.</div></div>
+            <div class="t"><b>Secretary General — EWB‑UCT</b><div class="when">Nov 2022 – Nov 2023</div><div>Human‑Centred Design workshop; first‑year orientation.</div></div>
+            <div class="t"><b>Women Accelerate — Bain & Company</b><div class="when">Dec 2023</div><div>Leadership & strategy intensives.</div></div>
+          </div>
         </div>
-        <div class="col-6 timeline">
-          <div class="t-item"><div class="role"><b>RPA Team</b> <span class="org">Old Mutual</span> <span class="when">· Jul 2023</span></div><ul class="list"><li>Bizagi & Blue Prism; JSON/API integrations.</li></ul></div>
-          <div class="t-item"><div class="role"><b>Junior Electronics</b> <span class="org">SARAO</span> <span class="when">· Jun 2022</span></div><ul class="list"><li>CNC wiring; PCB build/test; I²C/SPI/UART; Python data plots.</li></ul></div>
-          <div class="t-item"><div class="role"><b>Course Tutor</b> <span class="org">UCT EE</span> <span class="when">· Aug – Nov 2023</span></div><ul class="list"><li>EEE1007S: power, renewables, circuits.</li></ul></div>
+        <div class="col-6">
+          <div class="timeline">
+            <div class="t"><b>RPA Team — Old Mutual</b><div class="when">Jul 2023</div><div>Bizagi & Blue Prism; JSON/API integrations.</div></div>
+            <div class="t"><b>Junior Electronics — SARAO</b><div class="when">Jun 2022</div><div>CNC wiring; PCB build/test; I²C/SPI/UART; Python plots.</div></div>
+            <div class="t"><b>Course Tutor — UCT EE</b><div class="when">Aug – Nov 2023</div><div>EEE1007S: power, renewables, circuits.</div></div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="card shadow" aria-labelledby="contact-title">
-      <h2 id="contact-title">Say hi</h2>
+    <section id="contact" class="section" style="margin-top:18px" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
       <p>Email: <a href="mailto:spmia03@gmail.com">spmia03@gmail.com</a> · Phone: <a href="tel:+27812701207">(+27) 81 270 1207</a> · <a href="https://www.linkedin.com/in/safiya-palesa-mia-980297281/" target="_blank" rel="noopener">LinkedIn</a></p>
-      <p>Résumé: <a href="assets/Safiya_Palesa_Mia_Resume.pdf">assets/Safiya_Palesa_Mia_Resume.pdf</a></p>
+      <p>Résumé (PDF): <a href="assets/Safiya_Palesa_Mia_Resume.pdf">assets/Safiya_Palesa_Mia_Resume.pdf</a></p>
     </section>
   </main>
 
   <footer>
-    © <span id="year"></span> Safiya Palesa Mia · Built with GitHub Pages
+    © <script>document.write(new Date().getFullYear())</script> Safiya Palesa Mia · Built with GitHub Pages
   </footer>
-
-  <!-- Lightbox + Filters + Rotator -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-label="Image viewer" aria-modal="true">
-    <img id="lightbox-img" alt="Expanded view" />
-  </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // simple lightbox
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lightbox-img');
-    document.querySelectorAll('.shot img').forEach(img=>{
-      img.addEventListener('click',()=>{lbImg.src = img.src; lb.classList.add('open');});
-    });
-    lb.addEventListener('click',()=>lb.classList.remove('open'));
-
-    // filters
-    const filters = document.querySelectorAll('.filter');
-    const items = document.querySelectorAll('.shot');
-    filters.forEach(f=>f.addEventListener('click',()=>{
-      filters.forEach(x=>x.classList.remove('active')); f.classList.add('active');
-      const tag = f.dataset.filter; items.forEach(it=>{
-        if(tag==='all'){ it.style.display='block'; return; }
-        const has = (it.dataset.tags||'').includes(tag);
-        it.style.display = has ? 'block' : 'none';
-      });
-    }));
-
-    // rotating personal tagline to avoid LinkedIn vibe
-    const lines = [
-      'I design things that move — and move people.',
-      'Robots, circuits, and the humans they serve.',
-      'Curious mind. Steady hands. Bright ideas.',
-      'Make it work → make it right → make it delightful.'
-    ];
-    let i=0; const rot = document.getElementById('rotator');
-    setInterval(()=>{ i=(i+1)%lines.length; rot.textContent = lines[i]; }, 3000);
-  </script>
 </body>
 </html>
