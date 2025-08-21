@@ -4,46 +4,50 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Safiya Palesa Mia — E‑Portfolio</title>
-  <meta name="description" content="Final‑year Mechatronic Engineering student showcasing projects, experience, and impact." />
+  <meta name="description" content="Final‑year Mechatronic Engineering student showcasing projects, artefacts, and impact." />
   <meta name="author" content="Safiya Palesa Mia" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0f1220;
-      --card:#171a2a;
-      --muted:#b7c1d6;
-      --text:#ecf1ff;
-      --accent:#7dd3fc;
-      --accent-2:#a78bfa;
-      --chip:#0ea5e9;
+      --bg:#0d1024; --bg2:#0b0e1c; --card:#151935; --muted:#b7c1d6; --text:#ecf1ff;
+      --accent:#7dd3fc; --accent2:#a78bfa; --ok:#34d399; --chip:#0ea5e9;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(1200px 800px at 20% -10%, #1d2240 0%, var(--bg) 50%),radial-gradient(900px 600px at 120% 0%, #202754 0%, transparent 60%),var(--bg);color:var(--text);line-height:1.6}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg2);color:var(--text);line-height:1.6}
+
+    /* Background blobs */
+    .bg-blobs::before,.bg-blobs::after{content:"";position:fixed;inset:auto auto 10% -10%;width:55vmax;height:55vmax;border-radius:50%;filter:blur(60px);z-index:-1;opacity:.35;transition:transform .4s ease}
+    .bg-blobs::before{background:radial-gradient(circle at 30% 30%, var(--accent), transparent 60%)}
+    .bg-blobs::after{left:auto;right:-10%;bottom:5%;background:radial-gradient(circle at 70% 70%, var(--accent2), transparent 60%)}
+
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
-    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(6px);background:linear-gradient(to bottom, rgba(15,18,32,.9), rgba(15,18,32,.6));border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
+    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(6px);background:linear-gradient(to bottom, rgba(13,16,36,.92), rgba(13,16,36,.6));border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
     .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 20px}
     .nav a{margin:0 10px;color:var(--muted);font-weight:600}
     .brand{display:flex;gap:10px;align-items:center}
-    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 8px 24px rgba(125,211,252,.35)}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 0deg, var(--accent), var(--accent2));box-shadow:0 8px 24px rgba(125,211,252,.35)}
     .brand span{font-weight:800;color:var(--text)}
-    .btn{display:inline-block;padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#0b1020;font-weight:800;box-shadow:0 10px 24px rgba(125,211,252,.35);transition:transform .08s ease}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#0b1020;font-weight:800;box-shadow:0 10px 24px rgba(125,211,252,.35);transition:transform .08s ease}
     .btn:hover{transform:translateY(-1px)}
 
     .container{max-width:1100px;margin:0 auto;padding:40px 20px}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:60px 0}
     .card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px}
     .shadow{box-shadow:0 10px 30px rgba(0,0,0,.35)}
-    h1{font-size:clamp(28px,4vw,44px);line-height:1.2;margin:0 0 10px}
-    .subtitle{font-size:clamp(14px,1.6vw,18px);color:var(--muted);margin:.4rem 0 1rem}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:60px 0}
+    h1{font-size:clamp(28px,4vw,48px);line-height:1.2;margin:0 0 10px}
+    .tagline{font-size:clamp(14px,1.6vw,18px);color:var(--muted);margin:.4rem 0 1rem}
     .chips{display:flex;flex-wrap:wrap;gap:10px;margin:.6rem 0 1.2rem}
     .chip{padding:6px 10px;background:rgba(13,148,136,.1);border:1px solid rgba(13,148,136,.4);border-radius:999px;color:#7eead6;font-weight:600;font-size:12.5px}
-    .contact{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
-    .contact a{color:var(--text);border:1px solid rgba(255,255,255,.12);padding:8px 12px;border-radius:12px;display:inline-flex;align-items:center;gap:8px}
+    .metrics{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+    .metric{padding:10px 12px;border-radius:14px;background:rgba(125,211,252,.12);border:1px solid rgba(125,211,252,.35);font-weight:800}
 
+    /* Sections */
     h2{font-size:clamp(22px,3vw,30px);margin:18px 0}
     .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
     .col-6{grid-column:span 6}
@@ -51,7 +55,7 @@
     .timeline{position:relative;padding-left:18px}
     .timeline:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,rgba(255,255,255,.16),rgba(255,255,255,.04))}
     .t-item{position:relative;margin:14px 0;padding-left:8px}
-    .t-item:before{content:"";position:absolute;left:-2px;top:10px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 0 3px rgba(125,211,252,.18)}
+    .t-item:before{content:"";position:absolute;left:-2px;top:10px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 0 3px rgba(125,211,252,.18)}
     .role{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}
     .role b{font-size:16px}
     .when{color:var(--muted);font-weight:600}
@@ -61,26 +65,32 @@
     .skills{display:flex;flex-wrap:wrap;gap:10px}
     .skill{background:rgba(125,211,252,.12);border:1px solid rgba(125,211,252,.35);padding:6px 10px;border-radius:10px;font-weight:700}
 
+    /* Gallery */
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
+    .filter{padding:8px 12px;border:1px solid rgba(255,255,255,.14);border-radius:999px;color:var(--muted);cursor:pointer}
+    .filter.active{color:#0b1020;background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:transparent}
     .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
     .shot{grid-column:span 4;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden}
-    .shot img{width:100%;height:210px;object-fit:cover;display:block}
+    .shot img{width:100%;height:210px;object-fit:cover;display:block;transition:transform .3s ease}
+    .shot:hover img{transform:scale(1.03)}
     .shot figcaption{padding:10px 12px;color:var(--muted);font-size:13px}
+    .shot [data-links] a{margin-right:10px}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:92vw;max-height:88vh;border-radius:12px}
 
     footer{padding:40px 20px;color:var(--muted);text-align:center}
 
-    @media (max-width:920px){
-      .hero{grid-template-columns:1fr}
-      .col-6{grid-column:span 12}
-      .shot{grid-column:span 6}
-    }
-    @media (max-width:640px){
-      .shot{grid-column:span 12}
-    }
+    /* Responsive */
+    @media (max-width:920px){.hero{grid-template-columns:1fr}.col-6{grid-column:span 12}.shot{grid-column:span 6}}
+    @media (max-width:640px){.shot{grid-column:span 12}}
   </style>
 </head>
-<body>
+<body class="bg-blobs">
   <header>
-    <nav class="nav">
+    <nav class="nav" aria-label="Main">
       <div class="brand"><div class="logo" aria-hidden="true"></div><span>Safiya Palesa Mia</span></div>
       <div>
         <a href="#about">About</a>
@@ -94,18 +104,17 @@
   </header>
 
   <main class="container">
-
-    <!-- Hero / About -->
-    <section id="about" class="hero">
-      <div class="card shadow">
-        <h1>Final‑Year Mechatronic Engineering Student</h1>
-        <p class="subtitle">I get a kick out of solving physical and mathematical problems. I’m fuelled by an intrinsic curiosity to learn and an intense desire to make meaningful contributions to the planet and its inhabitants.</p>
-        <div class="chips">
+    <!-- HERO / ABOUT -->
+    <section id="about" class="hero card shadow" aria-labelledby="about-title">
+      <div>
+        <h1 id="about-title">Final‑Year Mechatronic Engineering Student</h1>
+        <p class="tagline">I get a kick out of solving physical and mathematical problems. I’m fuelled by an intrinsic curiosity to learn and an intense desire to make meaningful contributions to the planet and its inhabitants.</p>
+        <div class="chips" aria-label="focus areas">
           <span class="chip">Mechatronics</span>
-          <span class="chip">AI & ML Community</span>
           <span class="chip">Robotics & Control</span>
-          <span class="chip">RPA</span>
           <span class="chip">Electronics</span>
+          <span class="chip">AI & ML Community</span>
+          <span class="chip">RPA</span>
         </div>
         <div class="skills">
           <span class="skill">MATLAB</span>
@@ -116,19 +125,24 @@
           <span class="skill">Soldering</span>
           <span class="skill">PCB Design</span>
         </div>
-        <div class="contact">
-          <a href="mailto:spmia03@gmail.com">📧 spmia03@gmail.com</a>
-          <a href="tel:+27812701207">📞 (+27) 81 270 1207</a>
-          <a href="https://www.linkedin.com/in/safiya-palesa-mia-980297281/" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        <div class="metrics" aria-label="quick stats">
+          <div class="metric">4+ leadership roles</div>
+          <div class="metric">Industry exposure: SARAO · Old Mutual · Bain</div>
+          <div class="metric">UCT+ Gold Leadership Award</div>
+        </div>
+        <div class="contact" style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="mailto:spmia03@gmail.com" class="btn" style="background:linear-gradient(135deg,var(--ok),var(--accent));">Email me</a>
+          <a href="#artefacts" class="btn">See artefacts</a>
         </div>
       </div>
-      <div class="card shadow">
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1400&auto=format&fit=crop" alt="Abstract robotics and engineering graphic" style="width:100%;border-radius:12px;aspect-ratio:16/10;object-fit:cover" />
-        <p style="color:var(--muted);margin:.8rem 0 0.2rem">Tip: Replace the image above with one of your own (e.g., lab photo or project build). Save it as <code>hero.jpg</code> in this repo and update the <code>src</code>.</p>
+      <div class="card shadow" style="background:rgba(255,255,255,.02)">
+        <!-- Replace with your own hero image in /assets/images/hero.jpg -->
+        <img src="assets/images/hero.jpg" alt="Safiya working in the lab (replace with your image)" style="width:100%;border-radius:12px;aspect-ratio:16/10;object-fit:cover" />
+        <p style="color:var(--muted);margin:.8rem 0 0.2rem"><!-- TODO: Replace the image above with one of your own (e.g., wind farm visit or SARAO). Save as assets/images/hero.jpg --></p>
       </div>
     </section>
 
-    <!-- Experience -->
+    <!-- EXPERIENCE -->
     <section id="experience" class="card shadow" aria-labelledby="exp-title">
       <h2 id="exp-title">Experience</h2>
       <div class="grid">
@@ -167,7 +181,7 @@
             <ul class="list">
               <li>Wired CNC mini mill; built, soldered and tested PCBs.</li>
               <li>Trained on I²C, SPI, UART/USART & shaft encoders.</li>
-              <li>Wrote software for I²C LCD, RTC, memory modules; coded Python to parse Teensy hex logs and generate scatter plots.</li>
+              <li>Wrote Python to parse Teensy hex logs and generate scatter plots.</li>
             </ul>
           </div>
           <div class="t-item">
@@ -179,14 +193,14 @@
           <div class="t-item">
             <div class="role"><b>Class Representative</b> <span class="org">UCT EBE Faculty</span> <span class="when">· Feb 2022 – Present</span></div>
             <ul class="list">
-              <li>Elected class rep for BSc(Eng) Mechatronics cohort; track record advocating student concerns and improving academic experience.</li>
+              <li>Elected class rep for BSc(Eng) Mechatronics cohort; advocated student concerns and improved academic experience.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Education -->
+    <!-- EDUCATION -->
     <section id="education" class="card shadow" aria-labelledby="edu-title">
       <h2 id="edu-title">Education</h2>
       <p><b>BSc(Engineering) in Mechatronics</b> — University of Cape Town <span class="when">· 2022 – Present</span></p>
@@ -194,57 +208,121 @@
       <p><b>Honours & Awards:</b> Faculty Entrance Scholarship (2022) · Dean's Merit List (2022) · Golden Key International Honour Society (2023) · UCT+ Gold Leadership Award (2023)</p>
     </section>
 
-    <!-- Artefacts / Projects -->
+    <!-- ARTEFACTS / PROJECTS -->
     <section id="artefacts" class="card shadow" aria-labelledby="art-title">
       <h2 id="art-title">Artefacts & Evidence</h2>
-      <p class="subtitle">Evidence of achievements and skills. Replace images & links with your own project assets.</p>
-      <div class="gallery">
-        <figure class="shot">
-          <img src="https://images.unsplash.com/photo-1581091870622-7c80d1dc4f87?q=80&w=1200&auto=format&fit=crop" alt="PCB assembly close‑up" />
-          <figcaption>PCB design & soldering — Include Gerber screenshot or assembled board photo. <a href="#" aria-label="View PCB artefact">View PDF ↗</a></figcaption>
+      <p class="tagline">Evidence of achievements and skills. Replace the image paths with your actual uploads under <code>assets/images/</code>.</p>
+
+      <!-- Filters (optional) -->
+      <div class="filters" role="tablist" aria-label="Filter artefacts">
+        <button class="filter active" data-filter="all" role="tab">All</button>
+        <button class="filter" data-filter="electronics" role="tab">Electronics</button>
+        <button class="filter" data-filter="lab" role="tab">Lab & Testing</button>
+        <button class="filter" data-filter="industry" role="tab">Industry & Field</button>
+        <button class="filter" data-filter="team" role="tab">Leadership & Team</button>
+      </div>
+
+      <div class="gallery" id="gallery">
+        <!-- 15 items wired to your photos. Upload & rename accordingly. -->
+        <figure class="shot" data-tags="industry">
+          <img src="assets/images/sarao-entrance.jpg" alt="At SARAO entrance" />
+          <figcaption>
+            <strong>SARAO Internship (2022)</strong> — Electronics & CNC wiring; comms protocols (I²C, SPI, UART). <span data-links></span>
+          </figcaption>
         </figure>
-        <figure class="shot">
-          <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop" alt="Microcontroller on a breadboard" />
-          <figcaption>STM32/Arduino firmware — Link to GitHub repo or code snippet. <a href="#">Repo ↗</a></figcaption>
+
+        <figure class="shot" data-tags="lab">
+          <img src="assets/images/lab-notes-pink.jpg" alt="Lab notes and laptop" />
+          <figcaption><strong>Lab documentation</strong> — experimental notes and data logging discipline.</figcaption>
         </figure>
-        <figure class="shot">
-          <img src="https://images.unsplash.com/photo-1581091014534-7c77f7d2afdd?q=80&w=1200&auto=format&fit=crop" alt="Robot/automation concept" />
-          <figcaption>RPA workflow (Bizagi/Blue Prism) — Export a PNG of your process map. <a href="#">Download PNG ↗</a></figcaption>
+
+        <figure class="shot" data-tags="team">
+          <img src="assets/images/ewb-hardhat-portrait.jpg" alt="EWB hardhat portrait" />
+          <figcaption><strong>EWB Leadership</strong> — Secretary General; organised HCD workshop and orientation.</figcaption>
         </figure>
-        <figure class="shot">
-          <img src="https://images.unsplash.com/photo-1518314916381-77a37c2a49ae?q=80&w=1200&auto=format&fit=crop" alt="Data visualization on screen" />
-          <figcaption>Python data processing — Scatter plots from Teensy hex logs. <a href="#">Jupyter Notebook ↗</a></figcaption>
+
+        <figure class="shot" data-tags="industry">
+          <img src="assets/images/danger-high-voltage.jpg" alt="High voltage site" />
+          <figcaption><strong>Substation visit</strong> — safety culture & power systems exposure.</figcaption>
         </figure>
-        <figure class="shot">
-          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Panel discussion" />
-          <figcaption>AI Society events — Poster or event photos. <a href="#">Highlights ↗</a></figcaption>
+
+        <figure class="shot" data-tags="lab electronics">
+          <img src="assets/images/lab-panel-work.jpg" alt="Using lab power systems panel" />
+          <figcaption><strong>Power systems lab</strong> — measurement & controls.</figcaption>
         </figure>
-        <figure class="shot">
-          <img src="https://images.unsplash.com/photo-1542323293-1b3b6033754e?q=80&w=1200&auto=format&fit=crop" alt="Workshop group" />
-          <figcaption>EWB HCD workshop — Slide deck or reflection piece. <a href="#">Slides ↗</a></figcaption>
+
+        <figure class="shot" data-tags="team">
+          <img src="assets/images/uct-mechatronics-lab-friends.jpg" alt="Team at UCT Mechatronics lab" />
+          <figcaption><strong>Team collaboration</strong> — lab roles & peer learning.</figcaption>
+        </figure>
+
+        <figure class="shot" data-tags="team">
+          <img src="assets/images/uct-mechatronics-sign-selfie.jpg" alt="UCT Mechatronics sign selfie" />
+          <figcaption><strong>Mechatronics community</strong> — society & lab engagement.</figcaption>
+        </figure>
+
+        <figure class="shot" data-tags="electronics lab">
+          <img src="assets/images/oscilloscope-setup.jpg" alt="Oscilloscope and custom PCB on bench" />
+          <figcaption><strong>Signal probing</strong> — oscilloscope debug on custom board.</figcaption>
+        </figure>
+
+        <figure class="shot" data-tags="electronics">
+          <img src="assets/images/breadboard-circuit.jpg" alt="Breadboard discrete circuit" />
+          <figcaption><strong>Discrete circuit build</strong> — prototyping & verification.</figcaption>
+        </figure>
+
+        <figure class="shot" data-tags="lab team">
+          <img src="assets/images/power-systems-lab-group.jpg" alt="Power systems lab group" />
+          <figcaption><strong>Lab delivery</strong> — teamwork under time constraints.</figcaption>
+        </figure>
+
+        <figure class="shot" data-tags="electronics lab">
+          <img src="assets/images/desktop-breadboard-software.jpg" alt="Breadboard next to software monitoring" />
+          <figcaption><strong>Hardware‑software loop</strong> — instrumentation + analysis.</figcaption>
+        </figure>
+
+        <figure class="shot" data-tags="industry">
+          <img src="assets/images/workshop-safety-glasses.jpg" alt="Workshop with safety glasses" />
+          <figcaption><strong>Manufacturing workshop</strong> — measurement & fabrication basics.</figcaption>
+        </figure>
+
+        <figure class="shot" data-tags="lab team">
+          <img src="assets/images/lab-collab-hoodie.jpg" alt="Lab collaboration" />
+          <figcaption><strong>Peer mentoring</strong> — sharing methods and results.</figcaption>
+        </figure>
+
+        <figure class="shot" data-tags="electronics industry">
+          <img src="assets/images/control-panel-wiring.jpg" alt="Industrial control panel wiring" />
+          <figcaption><strong>Control panel wiring</strong> — neat routing, labeling, safety standards.</figcaption>
+        </figure>
+
+        <figure class="shot" data-tags="industry">
+          <img src="assets/images/wind-turbine-site.jpg" alt="Wind turbine site" />
+          <figcaption><strong>Wind farm visit</strong> — renewable energy systems & site safety.</figcaption>
         </figure>
       </div>
+      <p class="tagline" style="margin-top:10px">Tip: you can link artefacts to PDFs, slides, or repos by adding anchors inside the <code>[data-links]</code> span in each figcaption.</p>
     </section>
 
-    <!-- Volunteering -->
+    <!-- VOLUNTEERING -->
     <section id="volunteering" class="card shadow" aria-labelledby="vol-title">
       <h2 id="vol-title">Volunteering</h2>
       <div class="timeline">
         <div class="t-item">
           <div class="role"><b>Project Team Member</b> <span class="org">Engineers Without Borders</span> <span class="when">· Feb 2022 – Jun 2022</span></div>
           <ul class="list">
-            <li>Playing with Solar initiative at COSAT High School, Khayelitsha.</li>
+            <li>“Playing with Solar” at COSAT High School, Khayelitsha.</li>
             <li>Taught breadboard electronics & soldering; led solar‑powerbank builds with Grade 9 students.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- CONTACT -->
     <section id="contact" class="card shadow" aria-labelledby="contact-title">
       <h2 id="contact-title">Get in touch</h2>
       <p>Email: <a href="mailto:spmia03@gmail.com">spmia03@gmail.com</a> · Phone: <a href="tel:+27812701207">(+27) 81 270 1207</a> · <a href="https://www.linkedin.com/in/safiya-palesa-mia-980297281/" target="_blank" rel="noopener">LinkedIn</a></p>
-      <p>Download Résumé (PDF): <a href="#">Add your resume.pdf and link it here</a></p>
+      <p>Download Résumé (PDF): <a href="assets/Safiya_Palesa_Mia_Resume.pdf">Add your <code>Safiya_Palesa_Mia_Resume.pdf</code> to <code>assets/</code> and this link will work</a></p>
     </section>
   </main>
 
@@ -252,8 +330,33 @@
     © <span id="year"></span> Safiya Palesa Mia · Built with GitHub Pages
   </footer>
 
+  <!-- Lightbox + Filters -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Image viewer" aria-modal="true">
+    <img id="lightbox-img" alt="Expanded view" />
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    document.querySelectorAll('.shot img').forEach(img=>{
+      img.addEventListener('click',()=>{lbImg.src = img.src; lb.classList.add('open');});
+    });
+    lb.addEventListener('click',()=>lb.classList.remove('open'));
+
+    // Filters
+    const filters = document.querySelectorAll('.filter');
+    const items = document.querySelectorAll('.shot');
+    filters.forEach(f=>f.addEventListener('click',()=>{
+      filters.forEach(x=>x.classList.remove('active')); f.classList.add('active');
+      const tag = f.dataset.filter; items.forEach(it=>{
+        if(tag==='all'){ it.style.display='block'; return; }
+        const has = (it.dataset.tags||'').includes(tag);
+        it.style.display = has ? 'block' : 'none';
+      });
+    }));
   </script>
 </body>
 </html>
