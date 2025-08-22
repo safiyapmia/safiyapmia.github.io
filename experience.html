@@ -26,47 +26,65 @@
     h1{margin:6px 0 12px}
     .lead{color:var(--muted);margin:-6px 0 14px}
 
-    /* Carousel — stable, centered media with separate caption bar */
-    .carousel{position:relative;border:1px solid var(--line);border-radius:16px;background:var(--card);overflow:hidden}
-    .slides{display:flex;transition:transform .4s ease}
-    .slide{min-width:100%;background:#fff}
+    /* ===== Carousel (smaller + perfectly centered) ===== */
+    .carousel{
+      position:relative;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:var(--card);
+      overflow:hidden;
+      max-width: 640px;     /* narrower carousel */
+      margin: 0 auto 18px;  /* center on page */
+    }
+    .slides{
+      display:flex;
+      transition:transform .4s ease;
+    }
+    .slide{
+      min-width:100%;
+      background:#fff;
+    }
     .media{
       width:100%;
-      aspect-ratio:16/9;            /* consistent frame */
-      background:#fff;              /* white “lightbox” behind image */
-      display:grid;                 /* perfect centering */
-      place-items:center;
+      height:220px;               /* SMALLER image frame */
+      padding:8px;
+      display:flex;               /* hard-center the photo */
+      align-items:center;         /* vertical center */
+      justify-content:center;     /* horizontal center */
+      background:#fff;            /* lightbox behind photo */
       border-bottom:1px solid var(--line);
     }
     .media img{
       max-width:100%;
       max-height:100%;
-      object-fit:contain;           /* never crop */
-      object-position:center;       /* actual center */
+      width:auto; height:auto;    /* keep original aspect, no stretch */
+      object-fit:contain;          /* never crop */
+      object-position:center;      /* true center */
       background:#fff;
     }
     figcaption{
-      padding:12px 14px;
+      padding:10px 12px;
       background:#f8fafc;
       border-top:1px solid var(--line);
       color:var(--ink);
       font-weight:600;
       line-height:1.35;
+      font-size:0.95rem;
     }
-
+    /* nav buttons (smaller to match the smaller carousel) */
     .nav-btn{
       position:absolute;top:50%;transform:translateY(-50%);
       background:rgba(255,255,255,.95);
       border:1px solid var(--line);color:#0b1220;
-      font-size:24px;line-height:1;border-radius:10px;padding:8px 12px;cursor:pointer;z-index:5
+      font-size:20px;line-height:1;border-radius:10px;padding:6px 10px;cursor:pointer;z-index:5
     }
     .nav-btn:hover{background:#fff}
-    .prev{left:12px} .next{right:12px}
-    .dots{position:absolute;left:0;right:0;bottom:10px;display:flex;gap:8px;justify-content:center;z-index:4}
-    .dots button{width:8px;height:8px;border-radius:50%;border:0;background:#cbd5e1;opacity:.9}
+    .prev{left:10px} .next{right:10px}
+    .dots{position:absolute;left:0;right:0;bottom:8px;display:flex;gap:6px;justify-content:center;z-index:4}
+    .dots button{width:7px;height:7px;border-radius:50%;border:0;background:#cbd5e1;opacity:.9}
     .dots button.active{background:#0f172a}
 
-    /* Timeline */
+    /* ===== Timeline ===== */
     .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
     .timeline{border-left:2px solid var(--line);padding-left:14px}
     .t{margin:10px 0}
@@ -74,35 +92,10 @@
     .when{color:var(--muted);font-weight:600}
 
     @media (max-width:900px){
+      .carousel{max-width: 100%;}
+      .media{height: 190px;}   /* smaller on mobile */
       .grid-2{grid-template-columns:1fr}
-      /* make the frame a bit shorter on mobile while still no-crop */
-      .media{aspect-ratio: 4/3}
     }
-    /* === size tuning: make carousel smaller & centered === */
-.carousel{
-  max-width: 820px;   /* narrower than the page so the image never dominates */
-  margin: 0 auto;     /* center it */
-}
-
-.slide{ height: auto; }   /* let content define height (no forced tall slide) */
-
-.media{
-  height: 320px;      /* SHRINK the image frame (was huge before) */
-  padding: 12px;      /* breathing room so images don’t feel crammed */
-}
-
-.media img{
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;   /* never crop */
-  object-position: center;
-}
-
-@media (max-width: 900px){
-  .carousel{ max-width: 100%; }
-  .media{ height: 230px; }  /* smaller on mobile */
-}
-
   </style>
 </head>
 <body>
