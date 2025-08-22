@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="assets/styles.css?v=2" rel="stylesheet">
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hobbies — Safiya Palesa Mia</title>
-  <link href="assets/styles.css" rel="stylesheet">
+  <title>Hobbies & Interests — Safiya Palesa Mia</title>
+
+  <!-- INLINE CRITICAL CSS (base + carousel) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b1324;--ink:#e5e7eb;--muted:#94a3b8;--line:#1f2937;--accent:#0ea5e9}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:#0b1324;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
+    a{color:#8bd3ff;text-decoration:none} a:hover{text-decoration:underline}
+    .container{max-width:980px;margin:0 auto;padding:24px 16px}
+    .site-header{position:sticky;top:0;background:rgba(11,19,36,.8);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid #1f2937;z-index:20}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .nav a{margin:0 10px;font-weight:600;color:var(--muted)}
+    .brand{font-weight:800;color:var(--ink)}
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:#00111a;font-weight:700;border:1px solid transparent}
+    .site-footer{padding:40px 16px;text-align:center;color:var(--muted)}
+    /* Carousel */
+    .carousel{position:relative;width:100%;height:calc(100vh - 160px);background:#0b1324;overflow:hidden}
+    .slides{height:100%;display:flex;transition:transform .4s ease}
+    .slide{min-width:100%;height:100%;position:relative;display:flex;align-items:center;justify-content:center}
+    .slide img{width:100%;height:100%;object-fit:contain}
+    .slide figcaption{position:absolute;left:0;right:0;bottom:0;color:#e5e7eb;background:linear-gradient(transparent,rgba(0,0,0,.5));padding:14px 18px;font-weight:600}
+    .nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:28px;line-height:1;border-radius:10px;padding:8px 12px;cursor:pointer}
+    .nav-btn:hover{background:rgba(255,255,255,.25)}
+    .prev{left:12px} .next{right:12px}
+    .dots{position:absolute;left:0;right:0;bottom:12px;display:flex;gap:8px;justify-content:center}
+    .dots button{width:8px;height:8px;border-radius:50%;border:0;background:#64748b;opacity:.7}
+    .dots button.active{opacity:1;background:#e5e7eb}
+  </style>
 </head>
-<body class="dark">
+<body>
   <header class="site-header">
     <div class="container nav">
       <div class="brand">Safiya Palesa Mia</div>
@@ -17,49 +44,107 @@
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="experience.html">Experience</a>
+        <a href="hobbies.html">Hobbies</a>
         <a class="btn" href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <h1>Hobbies & Interests</h1>
+  <main>
+    <section class="carousel" aria-label="Hobbies slideshow">
+      <button class="nav-btn prev" aria-label="Previous">‹</button>
+      <div class="slides" id="slides">
+        <figure class="slide">
+          <img src="assets/images/fashion.jpg" alt="Fashion & expression" />
+          <figcaption>Fashion & Expression</figcaption>
+        </figure>
+        <figure class="slide">
+          <img src="assets/images/hike.jpg" alt="Hiking & outdoors" />
+          <figcaption>Hiking & Outdoors</figcaption>
+        </figure>
+        <figure class="slide">
+          <img src="assets/images/padel.jpg" alt="Padel tennis" />
+          <figcaption>Padel Tennis</figcaption>
+        </figure>
+        <figure class="slide">
+          <img src="assets/images/pilates.jpg" alt="Pilates" />
+          <figcaption>Pilates</figcaption>
+        </figure>
+        <figure class="slide">
+          <img src="assets/images/travel.jpg" alt="Travel & culture" />
+          <figcaption>Travel & Culture</figcaption>
+        </figure>
+      </div>
+      <button class="nav-btn next" aria-label="Next">›</button>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+    </section>
   </main>
-
-  <!-- Full-bleed carousel -->
-  <section class="carousel" aria-label="Hobbies slideshow">
-    <button class="nav-btn prev" aria-label="Previous image">‹</button>
-    <div class="slides" id="slides">
-      <figure class="slide">
-        <img src="assets/images/fashion.jpg" alt="Casual style mirror selfie">
-        <figcaption>Fashion & expression</figcaption>
-      </figure>
-      <figure class="slide">
-        <img src="assets/images/hike.jpg" alt="Hiking above the coast at sunset">
-        <figcaption>Hiking & outdoors</figcaption>
-      </figure>
-      <figure class="slide">
-        <img src="assets/images/padel.jpg" alt="At a padel tennis court">
-        <figcaption>Padel tennis</figcaption>
-      </figure>
-      <figure class="slide">
-        <img src="assets/images/pilates.jpg" alt="Inside a pilates studio">
-        <figcaption>Pilates</figcaption>
-      </figure>
-      <figure class="slide">
-        <img src="assets/images/travel.jpg" alt="Travel photo by the pyramids">
-        <figcaption>Travel & culture</figcaption>
-      </figure>
-    </div>
-    <button class="nav-btn next" aria-label="Next image">›</button>
-
-    <div class="dots" id="dots" aria-hidden="true"></div>
-  </section>
 
   <footer class="site-footer">
     © <script>document.write(new Date().getFullYear())</script> Safiya Palesa Mia
   </footer>
 
-  <script src="assets/slider.js"></script>
+  <!-- Tiny inline JS for the slideshow -->
+  <script>
+  (function () {
+    const slides = document.getElementById('slides');
+    if (!slides) return;
+
+    const figures = Array.from(slides.querySelectorAll('.slide'));
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const dots = document.getElementById('dots');
+
+    let index = 0;
+    const count = figures.length;
+
+    figures.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.addEventListener('click', () => goTo(i));
+      dots.appendChild(d);
+    });
+
+    function updateDots() {
+      dots.querySelectorAll('button').forEach((b, i) => {
+        b.classList.toggle('active', i === index);
+      });
+    }
+
+    function goTo(i) {
+      index = (i + count) % count;
+      slides.style.transform = 'translateX(-' + (index * 100) + '%)';
+      updateDots();
+    }
+
+    function nextSlide() { goTo(index + 1); }
+    function prevSlide() { goTo(index - 1); }
+
+    next.addEventListener('click', nextSlide);
+    prev.addEventListener('click', prevSlide);
+
+    // keyboard
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    // touch
+    let startX = 0;
+    slides.addEventListener('touchstart', (e) => startX = e.touches[0].clientX, {passive:true});
+    slides.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (dx > 40) prevSlide();
+      if (dx < -40) nextSlide();
+    }, {passive:true});
+
+    // autoplay
+    const interval = setInterval(nextSlide, 6000);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) clearInterval(interval);
+    });
+
+    goTo(0);
+  })();
+  </script>
 </body>
 </html>
