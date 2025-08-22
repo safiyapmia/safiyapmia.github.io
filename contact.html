@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="assets/styles.css?v=2" rel="stylesheet">
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — Safiya Palesa Mia</title>
-  <link href="assets/styles.css" rel="stylesheet">
+
+  <!-- INLINE CRITICAL CSS (same base as about.html) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#f6f8fb;--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--card:#fff;--accent:#0ea5e9}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(#fcfdff,#f6f8fb);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:980px;margin:0 auto;padding:24px 16px}
+    .site-header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--line);z-index:20}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .nav a{margin:0 10px;font-weight:600;color:var(--muted)}
+    .brand{font-weight:800}
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;border:1px solid transparent}
+    .site-footer{padding:40px 16px;text-align:center;color:var(--muted)}
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -18,6 +34,7 @@
         <a href="projects.html">Projects</a>
         <a href="experience.html">Experience</a>
         <a href="hobbies.html">Hobbies</a>
+        <a class="btn" href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -26,8 +43,8 @@
     <h1>Contact</h1>
     <p>Email: <a href="mailto:spmia03@gmail.com">spmia03@gmail.com</a></p>
     <p>Phone: <a href="tel:+27812701207">(+27) 81 270 1207</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/safiya-palesa-mia-980297281/" target="_blank" rel="noopener">Profile</a></p>
-    <p>Résumé (PDF): <a href="assets/Safiya_Palesa_Mia_Resume.pdf">Download</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/safiya-palesa-mia-980297281/" target="_blank" rel="noopener">Safiya Palesa Mia</a></p>
+    <p>Résumé (PDF): <a href="assets/Safiya_Palesa_Mia_Resume.pdf">Download here</a></p>
   </main>
 
   <footer class="site-footer">
