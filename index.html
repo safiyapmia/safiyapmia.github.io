@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Safiya Palesa Mia — E‑Portfolio</title>
-  <meta name="description" content="Final‑year Mechatronic Engineering student. A calm, thoughtful portfolio: projects, artefacts, and a short personal statement." />
+  <title>Safiya Palesa Mia — E-Portfolio</title>
+  <meta name="description" content="Final-year Mechatronic Engineering student. A calm, thoughtful portfolio: projects, artefacts, and a short personal statement." />
   <meta name="author" content="Safiya Palesa Mia" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,7 @@
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background: linear-gradient(#fcfdff, #f6f8fb);  /* subtle, clean gradient */color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
+    body{margin:0;background: linear-gradient(#fcfdff, #f6f8fb);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
 
@@ -43,13 +43,13 @@
 
     /* Hero */
     .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
-    .hero img {
-  width: 100%;
-  height: auto;          /* keeps full image */
-  object-fit: contain;   /* do not crop */
-  border-radius: 12px;
-  border: 1px solid var(--line);
-}
+    .hero img{
+      width:100%;
+      height:auto;
+      object-fit:contain;   /* do not crop */
+      border-radius:12px;
+      border:1px solid var(--line);
+    }
 
     .chips{display:flex;flex-wrap:wrap;gap:8px;margin:.6rem 0 1.2rem}
     .chip{padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-weight:600;font-size:12.5px;background:#fff}
@@ -77,7 +77,10 @@
     footer{padding:40px 16px;text-align:center;color:var(--muted)}
 
     /* Responsive */
-    @media (max-width:900px){.hero{grid-template-columns:1fr}.col-6{grid-column:span 12}}
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .col-6{grid-column:span 12}
+    }
   </style>
 </head>
 <body>
@@ -99,9 +102,17 @@
     <section id="about" class="section">
       <div class="hero">
         <div>
-          <h1>Hi, I’m Safiya Palesa Mia.</h1>
-          <p style="color:var(--muted)">My name is a map of my home: an <b>Arabic</b> first name, a <b>Sotho</b> second name, and an <b>Indian</b> surname. I’m South African, proudly mixed—influenced by many worlds and comfortable building bridges between them. That shows up in my engineering too.</p>
-          <p>I chose engineering because solving physical and mathematical problems feels like play. I’m fuelled by curiosity and a stubborn desire to make useful things—especially for Africa. I’m drawn to projects where hardware meets software and people, and where craft and compassion both matter.</p>
+          <h1>Hi, I am Safiya Palesa Mia.</h1>
+          <p>I am a Mechatronic Engineering student from South Africa.</p>
+
+          <p>My name tells my story: <b>Safiya</b> comes from my faith, Islam; <b>Palesa</b> is Sotho, from the country where I was born and raised; and <b>Mia</b> is my Indian family name. Together they remind me of the beauty of diversity and why equality matters.</p>
+
+          <p>I chose engineering because I’ve always enjoyed making and fixing things, from small hacks at home to more ambitious projects. I’m curious, I like solving problems, and I want to use that to create technology that is practical and useful—especially here in Africa.</p>
+
+          <p>I believe good engineering is not just about neat wiring, clean code, and working systems—it’s also about people. For me, teamwork, teaching, and designing inclusively are as important as the technical details.</p>
+
+          <p>My goal is simple: to raise the standard of living through mechatronics that is affordable, maintainable, and actually gets used.</p>
+
           <div class="chips">
             <span class="chip">Empathy-led design</span>
             <span class="chip">Hardware ↔ Software</span>
@@ -113,16 +124,8 @@
             <a class="btn secondary" href="#experience">Highlights</a>
           </div>
         </div>
-       <img src="assets/images/ewb-hardhat-portrait.jpg" alt="Safiya wearing a hardhat (EWB)" />
+        <img src="assets/images/ewb-hardhat-portrait.jpg" alt="Safiya wearing a hardhat (EWB)" />
       </div>
-    </section>
-
-    <!-- PERSONAL STATEMENT (short) -->
-    <section class="section" aria-labelledby="ps-title" style="margin-top:18px">
-      <h2 id="ps-title">Personal statement</h2>
-      <p><b>Why engineering:</b> From a young age I loved making things with my hands—fixes at home, scarecrows for the veggie patch, little hacks that made life easier. I admired Nikola Tesla not just for invention, but for the idea that technology should widen access. Learning about child labour and cycles of exploitation sharpened that belief. I want robots and tools to take on the dangerous, dirty work—and return dignity and time to people.</p>
-      <p><b>How I work:</b> iterate fast, document clearly, and make the inside as neat as the outside (wiring, plots, code comments). I care about teaming and teaching; good engineering is communal.</p>
-      <p><b>What I’m aiming for:</b> to raise the standard of living—starting here in Africa—through mechatronics that is affordable, maintainable, and actually gets used.</p>
     </section>
 
     <!-- GALLERY / PROJECTS -->
@@ -163,7 +166,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src=assets/"images/danger-high-voltage.jpg" alt="High voltage site" />
+          <img src="assets/images/danger-high-voltage.jpg" alt="High voltage site" />
           <div class="meta">
             <b>Power systems visit</b>
             <small>Safety, substations, HV equipment.</small>
@@ -245,7 +248,7 @@
         <div class="col-6">
           <div class="timeline">
             <div class="t"><b>Executive Member — UCT AI Society</b><div class="when">Jun 2023 – Present</div><div>Founded community; ran expert panels.</div></div>
-            <div class="t"><b>Secretary General — EWB‑UCT</b><div class="when">Nov 2022 – Nov 2023</div><div>Human‑Centred Design workshop; first‑year orientation.</div></div>
+            <div class="t"><b>Secretary General — EWB-UCT</b><div class="when">Nov 2022 – Nov 2023</div><div>Human-Centred Design workshop; first-year orientation.</div></div>
             <div class="t"><b>Women Accelerate — Bain & Company</b><div class="when">Dec 2023</div><div>Leadership & strategy intensives.</div></div>
           </div>
         </div>
@@ -272,3 +275,4 @@
   </footer>
 </body>
 </html>
+
