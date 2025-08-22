@@ -1,18 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <link href="assets/styles.css?v=2" rel="stylesheet">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Safiya Palesa Mia — Home</title>
-  <link href="assets/styles.css" rel="stylesheet">
+  <title>Home — Safiya Palesa Mia</title>
+
+  <!-- INLINE CRITICAL CSS (same base as about.html, plus landing tiles) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#f6f8fb;--ink:#0f172a;--muted:#475569;--line:#e2e8f0;--card:#fff;--accent:#0ea5e9}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(#fcfdff,#f6f8fb);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    img{max-width:100%;height:auto;display:block}
+    .container{max-width:980px;margin:0 auto;padding:24px 16px}
+    .site-header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--line);z-index:20}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .nav a{margin:0 10px;font-weight:600;color:var(--muted)}
+    .brand{font-weight:800}
+    .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;border:1px solid transparent}
+    .site-footer{padding:40px 16px;text-align:center;color:var(--muted)}
+
+    /* Landing tiles */
+    .hero{padding:12px 0 8px}
+    .hero h1{margin:0}
+    .muted{color:var(--muted)}
+    .button-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:18px}
+    .tile{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:space-between}
+    .tile b{font-size:1.05rem;color:var(--ink)}
+    .tile span{color:var(--muted);font-size:.95rem;margin-top:4px}
+    .quick{margin-top:14px;font-size:.95rem}
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container nav">
       <div class="brand">Safiya Palesa Mia</div>
       <nav>
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="experience.html">Experience</a>
@@ -22,18 +49,35 @@
     </div>
   </header>
 
-  <main class="container landing">
-    <section class="hero-slim">
+  <main class="container">
+    <section class="hero">
       <h1>Hi, I am Safiya Palesa Mia.</h1>
       <p class="muted">Mechatronic Engineering student from South Africa.</p>
+
       <div class="button-grid">
-        <a class="tile" href="about.html"><b>About</b><span>Who I am & why engineering</span></a>
-        <a class="tile" href="projects.html"><b>Projects</b><span>Selected work & artefacts</span></a>
-        <a class="tile" href="experience.html"><b>Experience</b><span>Highlights & roles</span></a>
-        <a class="tile" href="hobbies.html"><b>Hobbies</b><span>Full-size photo slideshow</span></a>
-        <a class="tile" href="contact.html"><b>Contact</b><span>Get in touch</span></a>
+        <a class="tile" href="about.html">
+          <b>About</b>
+          <span>Who I am & why engineering</span>
+        </a>
+        <a class="tile" href="projects.html">
+          <b>Projects</b>
+          <span>Selected work & artefacts</span>
+        </a>
+        <a class="tile" href="experience.html">
+          <b>Experience</b>
+          <span>Highlights & roles</span>
+        </a>
+        <a class="tile" href="hobbies.html">
+          <b>Hobbies</b>
+          <span>Full-size photo slideshow</span>
+        </a>
+        <a class="tile" href="contact.html">
+          <b>Contact</b>
+          <span>Say hello / CV / links</span>
+        </a>
       </div>
-      <p class="tiny">CV: <a href="assets/Safiya_Palesa_Mia_Resume.pdf" target="_blank" rel="noopener">Download PDF</a></p>
+
+      <p class="quick">CV: <a href="assets/Safiya_Palesa_Mia_Resume.pdf" target="_blank" rel="noopener">Download PDF</a></p>
     </section>
   </main>
 
