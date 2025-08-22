@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Safiya Palesa Mia</title>
 
-  <!-- INLINE CRITICAL CSS (so the page styles even if external CSS fails) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -26,80 +25,48 @@
     .photo{border-radius:12px;border:1px solid var(--line);object-fit:cover;max-height:520px;width:100%}
     .site-footer{padding:40px 16px;text-align:center;color:var(--muted)}
     @media (max-width:900px){.two-col{grid-template-columns:1fr}}
-    /* === Mechatronics theme add-on (light, subtle grid) === */
-:root{
-  --bg:#f7fafc;           /* paper-light */
-  --ink:#0b1220;          /* deep slate */
-  --muted:#475569;        /* slate-600 */
-  --line:#e2e8f0;         /* soft divider */
-  --card:#ffffff;         /* cards/panels */
-  --accent:#0ea5e9;       /* sky-600 */
-  --accent-2:#06b6d4;     /* cyan-500 */
-}
 
-/* layered background: gentle gradients + fine grid */
-body{
-  background:
-    radial-gradient(1100px 520px at 8% -6%, rgba(14,165,233,.10), transparent 60%),
-    radial-gradient(900px 420px at 105% 8%, rgba(6,182,212,.09), transparent 60%),
-    linear-gradient(#fcfdff,#f6f8fb);
-  color:var(--ink);
-}
-
-/* subtle blueprint grid */
-body::before{
-  content:"";
-  position:fixed; inset:0; z-index:0; pointer-events:none;
-  background-image:
-    linear-gradient(rgba(2,132,199,.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(2,132,199,.06) 1px, transparent 1px);
-  background-size:24px 24px;
-  background-position:top left;
-}
-header, main, footer, .container{ position:relative; z-index:1; }
-
-/* buttons & links */
-.btn{ background:var(--accent); color:#fff; border:1px solid transparent; }
-.btn:hover{ filter:brightness(1.05); text-decoration:none; }
-a{ color:var(--accent); }
-a:hover{ text-decoration:underline; }
-
-/* panels/cards look a touch crisper on the new bg */
-.panel, .card{
-  box-shadow:0 1px 0 rgba(2,6,23,.02);
-  background:var(--card);
-}
-
-/* active nav underline */
-.nav a[aria-current="page"]{
-  color:var(--ink);
-  position:relative;
-}
-.nav a[aria-current="page"]::after{
-  content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));
-  border-radius:2px;
-}
-
+    /* === Mechatronics theme add-on === */
+    :root{--bg:#f7fafc;--ink:#0b1220;--muted:#475569;--line:#e2e8f0;--card:#ffffff;--accent:#0ea5e9;--accent-2:#06b6d4}
+    body{
+      background:
+        radial-gradient(1100px 520px at 8% -6%, rgba(14,165,233,.10), transparent 60%),
+        radial-gradient(900px 420px at 105% 8%, rgba(6,182,212,.09), transparent 60%),
+        linear-gradient(#fcfdff,#f6f8fb);
+      color:var(--ink);
+    }
+    body::before{
+      content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+      background-image:
+        linear-gradient(rgba(2,132,199,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(2,132,199,.06) 1px, transparent 1px);
+      background-size:24px 24px;
+    }
+    header, main, footer, .container{ position:relative; z-index:1; }
+    .btn{ background:var(--accent); color:#fff; border:1px solid transparent; }
+    .btn:hover{ filter:brightness(1.05); text-decoration:none; }
+    a{ color:var(--accent); }
+    .panel, .card{ box-shadow:0 1px 0 rgba(2,6,23,.02); background:var(--card); }
+    .nav a[aria-current="page"]{ color:var(--ink); position:relative; }
+    .nav a[aria-current="page"]::after{
+      content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2)); border-radius:2px;
+    }
   </style>
 </head>
 <body>
   <header class="site-header">
-  <div class="container nav">
-    <div class="brand">
-      <a href="about.html" style="color:inherit;text-decoration:none;">Safiya Palesa Mia</a>
+    <div class="container nav">
+      <div class="brand"><a href="about.html" style="color:inherit;text-decoration:none;">Safiya Palesa Mia</a></div>
+      <nav>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Skills & Experience</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a class="btn" href="contact.html">Contact</a>
+      </nav>
     </div>
-    <nav>
-      <!-- Mark the current page with aria-current="page" -->
-      <a href="about.html">About</a>
-      <a href="projects.html">Projects</a>
-      <a href="experience.html">Skills & Experience</a>
-      <a href="hobbies.html">Hobbies</a>
-      <a class="btn" href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
+  </header>
 
   <main class="container">
     <section class="panel two-col">
