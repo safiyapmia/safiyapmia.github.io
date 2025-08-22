@@ -25,19 +25,28 @@
     h1{margin:6px 0 12px}
     .lead{color:var(--muted);margin:-6px 0 14px}
 
-    /* ===== Carousel (smaller, centered, pixel-precise movement) ===== */
+    /* ===== Carousel (smaller, centered, pixel-precise) ===== */
     .carousel{
       position:relative;border:1px solid var(--line);border-radius:16px;background:var(--card);
-      overflow:hidden;max-width:620px;margin:0 auto 18px;
+      overflow:hidden;max-width:600px;margin:0 auto 18px;
     }
-    .viewport{width:100%;overflow:hidden} /* isolates width used for pixel calc */
-    .slides{display:flex;will-change:transform;transition:transform .4s ease}
-    .slide{flex:0 0 100%;background:#fff}
+    .viewport{width:100%;overflow:hidden}
+    .slides{display:flex;gap:0;will-change:transform;transition:transform .4s ease}
+    /* kill default figure margins so slides are exactly 100% wide */
+    figure{margin:0}
+    .slide{
+      width:100%; flex:0 0 100%; max-width:100%;
+      background:#fff; padding:0; border:0; box-sizing:border-box;
+    }
     .media{
-      width:100%; height:210px; padding:8px; border-bottom:1px solid var(--line);
-      display:flex; align-items:center; justify-content:center; background:#fff;
+      width:100%; height:200px; padding:10px;
+      display:flex; align-items:center; justify-content:center;
+      background:#fff; border-bottom:1px solid var(--line);
     }
-    .media img{max-width:100%; max-height:100%; object-fit:contain; object-position:center}
+    .media img{
+      max-width:100%; max-height:100%; width:auto; height:auto;
+      object-fit:contain; object-position:center; background:#fff;
+    }
     figcaption{
       padding:10px 12px; background:#f8fafc; border-top:1px solid var(--line);
       color:var(--ink); font-weight:600; line-height:1.35; font-size:.95rem;
@@ -109,7 +118,7 @@
     <div class="dots" id="dots" aria-hidden="true"></div>
   </section>
 
-  <!-- EXPERIENCE TIMELINE (unchanged) -->
+  <!-- EXPERIENCE TIMELINE -->
   <div class="grid-2">
     <div>
       <div class="timeline">
@@ -146,7 +155,7 @@
   let index = 0;
   const count = figures.length;
 
-  // dots
+  // build dots
   figures.forEach((_, i) => {
     const d = document.createElement('button');
     d.addEventListener('click', () => goTo(i));
@@ -154,14 +163,10 @@
   });
 
   function frameWidth(){ return carousel.querySelector('.viewport').clientWidth; }
-
-  function updateDots(){
-    dots.querySelectorAll('button').forEach((b,i)=>b.classList.toggle('active', i===index));
-  }
+  function updateDots(){ dots.querySelectorAll('button').forEach((b,i)=>b.classList.toggle('active', i===index)); }
 
   function goTo(i){
     index = (i + count) % count;
-    // move by the exact visible width in pixels
     slides.style.transform = 'translateX(' + (-frameWidth() * index) + 'px)';
     updateDots();
   }
@@ -187,7 +192,7 @@
     if (dx < -40) nextSlide();
   }, {passive:true});
 
-  // keep position correct on resize
+  // keep alignment on resize
   window.addEventListener('resize', () => goTo(index));
 
   // autoplay (pause when hidden)
