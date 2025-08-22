@@ -22,61 +22,30 @@
     .brand{font-weight:800}
     .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;border:1px solid transparent}
     .site-footer{padding:40px 16px;text-align:center;color:var(--muted)}
-
     h1{margin:6px 0 12px}
     .lead{color:var(--muted);margin:-6px 0 14px}
 
-    /* ===== Carousel (smaller + perfectly centered) ===== */
+    /* ===== Carousel (smaller, centered, pixel-precise movement) ===== */
     .carousel{
-      position:relative;
-      border:1px solid var(--line);
-      border-radius:16px;
-      background:var(--card);
-      overflow:hidden;
-      max-width: 640px;     /* narrower carousel */
-      margin: 0 auto 18px;  /* center on page */
+      position:relative;border:1px solid var(--line);border-radius:16px;background:var(--card);
+      overflow:hidden;max-width:620px;margin:0 auto 18px;
     }
-    .slides{
-      display:flex;
-      transition:transform .4s ease;
-    }
-    .slide{
-      min-width:100%;
-      background:#fff;
-    }
+    .viewport{width:100%;overflow:hidden} /* isolates width used for pixel calc */
+    .slides{display:flex;will-change:transform;transition:transform .4s ease}
+    .slide{flex:0 0 100%;background:#fff}
     .media{
-      width:100%;
-      height:220px;               /* SMALLER image frame */
-      padding:8px;
-      display:flex;               /* hard-center the photo */
-      align-items:center;         /* vertical center */
-      justify-content:center;     /* horizontal center */
-      background:#fff;            /* lightbox behind photo */
-      border-bottom:1px solid var(--line);
+      width:100%; height:210px; padding:8px; border-bottom:1px solid var(--line);
+      display:flex; align-items:center; justify-content:center; background:#fff;
     }
-    .media img{
-      max-width:100%;
-      max-height:100%;
-      width:auto; height:auto;    /* keep original aspect, no stretch */
-      object-fit:contain;          /* never crop */
-      object-position:center;      /* true center */
-      background:#fff;
-    }
+    .media img{max-width:100%; max-height:100%; object-fit:contain; object-position:center}
     figcaption{
-      padding:10px 12px;
-      background:#f8fafc;
-      border-top:1px solid var(--line);
-      color:var(--ink);
-      font-weight:600;
-      line-height:1.35;
-      font-size:0.95rem;
+      padding:10px 12px; background:#f8fafc; border-top:1px solid var(--line);
+      color:var(--ink); font-weight:600; line-height:1.35; font-size:.95rem;
     }
-    /* nav buttons (smaller to match the smaller carousel) */
     .nav-btn{
-      position:absolute;top:50%;transform:translateY(-50%);
-      background:rgba(255,255,255,.95);
-      border:1px solid var(--line);color:#0b1220;
-      font-size:20px;line-height:1;border-radius:10px;padding:6px 10px;cursor:pointer;z-index:5
+      position:absolute; top:50%; transform:translateY(-50%); z-index:5;
+      background:rgba(255,255,255,.95); border:1px solid var(--line);
+      color:#0b1220; font-size:20px; line-height:1; border-radius:10px; padding:6px 10px; cursor:pointer;
     }
     .nav-btn:hover{background:#fff}
     .prev{left:10px} .next{right:10px}
@@ -92,162 +61,143 @@
     .when{color:var(--muted);font-weight:600}
 
     @media (max-width:900px){
-      .carousel{max-width: 100%;}
-      .media{height: 190px;}   /* smaller on mobile */
+      .carousel{max-width:100%}
+      .media{height:180px}
       .grid-2{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <div class="brand">Safiya Palesa Mia</div>
-      <nav>
-        <a href="index.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="experience.html">Experience</a>
-        <a href="hobbies.html">Hobbies</a>
-        <a class="btn" href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="container nav">
+    <div class="brand">Safiya Palesa Mia</div>
+    <nav>
+      <a href="index.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="experience.html">Experience</a>
+      <a href="hobbies.html">Hobbies</a>
+      <a class="btn" href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="container">
-    <h1>Skills & Experience</h1>
-    <p class="lead">A quick look at hands-on skills and contexts I’ve worked in.</p>
+<main class="container">
+  <h1>Skills & Experience</h1>
+  <p class="lead">A quick look at hands-on skills and contexts I’ve worked in.</p>
 
-    <!-- SKILLS CAROUSEL -->
-    <section class="carousel" aria-label="Skills photo carousel">
-      <button class="nav-btn prev" aria-label="Previous">‹</button>
+  <!-- CAROUSEL -->
+  <section class="carousel" id="carousel" aria-label="Skills photo carousel">
+    <button class="nav-btn prev" aria-label="Previous">‹</button>
+    <div class="viewport">
       <div class="slides" id="slides">
-        <figure class="slide">
-          <div class="media"><img src="assets/images/sarao-entrance.jpg" alt="At SARAO entrance" loading="lazy" /></div>
-          <figcaption>SARAO internship — industry exposure; electronics build/test.</figcaption>
-        </figure>
-        <figure class="slide">
-          <div class="media"><img src="assets/images/oscilloscope-setup.jpg" alt="Oscilloscope probing on a custom PCB" loading="lazy" /></div>
-          <figcaption>Oscilloscope probing — measurement & debug on custom boards.</figcaption>
-        </figure>
-        <figure class="slide">
-          <div class="media"><img src="assets/images/breadboard-circuit.jpg" alt="Breadboard discrete circuit" loading="lazy" /></div>
-          <figcaption>Discrete circuits — prototyping & verification.</figcaption>
-        </figure>
-        <figure class="slide">
-          <div class="media"><img src="assets/images/control-panel-wiring.jpg" alt="Industrial control panel wiring" loading="lazy" /></div>
-          <figcaption>Control panel wiring — neat routing, labelling, safety practice.</figcaption>
-        </figure>
-        <figure class="slide">
-          <div class="media"><img src="assets/images/danger-high-voltage.jpg" alt="High voltage site" loading="lazy" /></div>
-          <figcaption>High-voltage visit — safety culture; power systems awareness.</figcaption>
-        </figure>
-        <figure class="slide">
-          <div class="media"><img src="assets/images/wind-turbine-site.jpg" alt="Wind turbine site" loading="lazy" /></div>
-          <figcaption>Renewables — wind farm systems & site safety.</figcaption>
-        </figure>
-        <figure class="slide">
-          <div class="media"><img src="assets/images/lab-notes-pink.jpg" alt="Lab notes and laptop" loading="lazy" /></div>
-          <figcaption>Documentation — disciplined notes & data logging.</figcaption>
-        </figure>
-        <figure class="slide">
-          <div class="media"><img src="assets/images/lab-panel-work.jpg" alt="Using a power systems lab panel" loading="lazy" /></div>
-          <figcaption>Power systems lab — measurement & controls.</figcaption>
-        </figure>
-        <figure class="slide">
-          <div class="media"><img src="assets/images/uct-mechatronics-lab-friends.jpg" alt="Team at UCT Mechatronics lab" loading="lazy" /></div>
-          <figcaption>Teamwork — shared methods, review, and results.</figcaption>
-        </figure>
-        <figure class="slide">
-          <div class="media"><img src="assets/images/uct-mechatronics-sign-selfie.jpg" alt="UCT Mechatronics sign selfie" loading="lazy" /></div>
-          <figcaption>Community — active engagement in the mechatronics society.</figcaption>
-        </figure>
-        <figure class="slide">
-          <div class="media"><img src="assets/images/desktop-breadboard-software.jpg" alt="Breadboard with software monitor on desktop" loading="lazy" /></div>
-          <figcaption>Hardware ↔ software — instrumentation and analysis loop.</figcaption>
-        </figure>
-        <figure class="slide">
-          <div class="media"><img src="assets/images/workshop-safety-glasses.jpg" alt="Manufacturing workshop with safety glasses" loading="lazy" /></div>
-          <figcaption>Workshop — measurement & fabrication basics.</figcaption>
-        </figure>
-        <figure class="slide">
-          <div class="media"><img src="assets/images/lab-collab-hoodie.jpg" alt="Lab collaboration with peers" loading="lazy" /></div>
-          <figcaption>Peer mentoring — teaching and learning in teams.</figcaption>
-        </figure>
-      </div>
-      <button class="nav-btn next" aria-label="Next">›</button>
-      <div class="dots" id="dots" aria-hidden="true"></div>
-    </section>
-
-    <!-- EXPERIENCE TIMELINE -->
-    <div class="grid-2">
-      <div>
-        <div class="timeline">
-          <div class="t"><b>Executive Member — UCT AI Society</b><div class="when">Jun 2023 – Present</div><div>Founded community; ran expert panels.</div></div>
-          <div class="t"><b>Secretary General — EWB-UCT</b><div class="when">Nov 2022 – Nov 2023</div><div>Human-Centred Design workshop; first-year orientation.</div></div>
-          <div class="t"><b>Women Accelerate — Bain & Company</b><div class="when">Dec 2023</div><div>Leadership & strategy intensives.</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="timeline">
-          <div class="t"><b>RPA Team — Old Mutual</b><div class="when">Jul 2023</div><div>Bizagi & Blue Prism; JSON/API integrations.</div></div>
-          <div class="t"><b>Junior Electronics — SARAO</b><div class="when">Jun 2022</div><div>CNC wiring; PCB build/test; I²C/SPI/UART; Python plots.</div></div>
-          <div class="t"><b>Course Tutor — UCT EE</b><div class="when">Aug – Nov 2023</div><div>EEE1007S: power, renewables, circuits.</div></div>
-        </div>
+        <figure class="slide"><div class="media"><img src="assets/images/sarao-entrance.jpg" alt="At SARAO entrance"></div><figcaption>SARAO internship — industry exposure; electronics build/test.</figcaption></figure>
+        <figure class="slide"><div class="media"><img src="assets/images/oscilloscope-setup.jpg" alt="Oscilloscope probing on a custom PCB"></div><figcaption>Oscilloscope probing — measurement & debug on custom boards.</figcaption></figure>
+        <figure class="slide"><div class="media"><img src="assets/images/breadboard-circuit.jpg" alt="Breadboard discrete circuit"></div><figcaption>Discrete circuits — prototyping & verification.</figcaption></figure>
+        <figure class="slide"><div class="media"><img src="assets/images/control-panel-wiring.jpg" alt="Industrial control panel wiring"></div><figcaption>Control panel wiring — neat routing, labelling, safety practice.</figcaption></figure>
+        <figure class="slide"><div class="media"><img src="assets/images/danger-high-voltage.jpg" alt="High voltage site"></div><figcaption>High-voltage visit — safety culture; power systems awareness.</figcaption></figure>
+        <figure class="slide"><div class="media"><img src="assets/images/wind-turbine-site.jpg" alt="Wind turbine site"></div><figcaption>Renewables — wind farm systems & site safety.</figcaption></figure>
+        <figure class="slide"><div class="media"><img src="assets/images/lab-notes-pink.jpg" alt="Lab notes and laptop"></div><figcaption>Documentation — disciplined notes & data logging.</figcaption></figure>
+        <figure class="slide"><div class="media"><img src="assets/images/lab-panel-work.jpg" alt="Using a power systems lab panel"></div><figcaption>Power systems lab — measurement & controls.</figcaption></figure>
+        <figure class="slide"><div class="media"><img src="assets/images/uct-mechatronics-lab-friends.jpg" alt="Team at UCT Mechatronics lab"></div><figcaption>Teamwork — shared methods, review, and results.</figcaption></figure>
+        <figure class="slide"><div class="media"><img src="assets/images/uct-mechatronics-sign-selfie.jpg" alt="UCT Mechatronics sign selfie"></div><figcaption>Community — active engagement in the mechatronics society.</figcaption></figure>
+        <figure class="slide"><div class="media"><img src="assets/images/desktop-breadboard-software.jpg" alt="Breadboard with software monitor on desktop"></div><figcaption>Hardware ↔ software — instrumentation and analysis loop.</figcaption></figure>
+        <figure class="slide"><div class="media"><img src="assets/images/workshop-safety-glasses.jpg" alt="Manufacturing workshop with safety glasses"></div><figcaption>Workshop — measurement & fabrication basics.</figcaption></figure>
+        <figure class="slide"><div class="media"><img src="assets/images/lab-collab-hoodie.jpg" alt="Lab collaboration with peers"></div><figcaption>Peer mentoring — teaching and learning in teams.</figcaption></figure>
       </div>
     </div>
-  </main>
+    <button class="nav-btn next" aria-label="Next">›</button>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+  </section>
 
-  <footer class="site-footer">
-    © <script>document.write(new Date().getFullYear())</script> Safiya Palesa Mia
-  </footer>
+  <!-- EXPERIENCE TIMELINE (unchanged) -->
+  <div class="grid-2">
+    <div>
+      <div class="timeline">
+        <div class="t"><b>Executive Member — UCT AI Society</b><div class="when">Jun 2023 – Present</div><div>Founded community; ran expert panels.</div></div>
+        <div class="t"><b>Secretary General — EWB-UCT</b><div class="when">Nov 2022 – Nov 2023</div><div>Human-Centred Design workshop; first-year orientation.</div></div>
+        <div class="t"><b>Women Accelerate — Bain & Company</b><div class="when">Dec 2023</div><div>Leadership & strategy intensives.</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="timeline">
+        <div class="t"><b>RPA Team — Old Mutual</b><div class="when">Jul 2023</div><div>Bizagi & Blue Prism; JSON/API integrations.</div></div>
+        <div class="t"><b>Junior Electronics — SARAO</b><div class="when">Jun 2022</div><div>CNC wiring; PCB build/test; I²C/SPI/UART; Python plots.</div></div>
+        <div class="t"><b>Course Tutor — UCT EE</b><div class="when">Aug – Nov 2023</div><div>EEE1007S: power, renewables, circuits.</div></div>
+      </div>
+    </div>
+  </div>
+</main>
 
-  <script>
-  (function () {
-    const slides = document.getElementById('slides');
-    if (!slides) return;
-    const figures = Array.from(slides.querySelectorAll('.slide'));
-    const prev = document.querySelector('.prev');
-    const next = document.querySelector('.next');
-    const dots = document.getElementById('dots');
+<footer class="site-footer">
+  © <script>document.write(new Date().getFullYear())</script> Safiya Palesa Mia
+</footer>
 
-    let index = 0, count = figures.length;
+<script>
+(function () {
+  const carousel = document.getElementById('carousel');
+  const slides = document.getElementById('slides');
+  if (!carousel || !slides) return;
 
-    // dots
-    figures.forEach((_, i) => {
-      const d = document.createElement('button');
-      d.addEventListener('click', () => goTo(i));
-      dots.appendChild(d);
-    });
+  const figures = Array.from(slides.querySelectorAll('.slide'));
+  const prev = carousel.querySelector('.prev');
+  const next = carousel.querySelector('.next');
+  const dots = document.getElementById('dots');
 
-    function updateDots(){ dots.querySelectorAll('button').forEach((b,i)=>b.classList.toggle('active', i===index)); }
-    function goTo(i){
-      index = (i + count) % count;
-      slides.style.transform = 'translateX(' + (-index * 100) + '%)';
-      updateDots();
-    }
-    function nextSlide(){ goTo(index+1); }
-    function prevSlide(){ goTo(index-1); }
+  let index = 0;
+  const count = figures.length;
 
-    next.addEventListener('click', nextSlide);
-    prev.addEventListener('click', prevSlide);
-    window.addEventListener('keydown', e => { if(e.key==='ArrowRight') nextSlide(); if(e.key==='ArrowLeft') prevSlide(); });
+  // dots
+  figures.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.addEventListener('click', () => goTo(i));
+    dots.appendChild(d);
+  });
 
-    // touch
-    let startX = 0;
-    slides.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
-    slides.addEventListener('touchend', e => {
-      const dx = e.changedTouches[0].clientX - startX;
-      if (dx > 40) prevSlide();
-      if (dx < -40) nextSlide();
-    }, {passive:true});
+  function frameWidth(){ return carousel.querySelector('.viewport').clientWidth; }
 
-    // autoplay (pause when hidden)
-    let timer = setInterval(nextSlide, 6000);
-    document.addEventListener('visibilitychange', () => {
-      if (document.hidden) clearInterval(timer); else timer = setInterval(nextSlide, 6000);
-    });
+  function updateDots(){
+    dots.querySelectorAll('button').forEach((b,i)=>b.classList.toggle('active', i===index));
+  }
 
-    goTo(0);
-  })();
-  </script>
+  function goTo(i){
+    index = (i + count) % count;
+    // move by the exact visible width in pixels
+    slides.style.transform = 'translateX(' + (-frameWidth() * index) + 'px)';
+    updateDots();
+  }
+
+  function nextSlide(){ goTo(index+1); }
+  function prevSlide(){ goTo(index-1); }
+
+  next.addEventListener('click', nextSlide);
+  prev.addEventListener('click', prevSlide);
+
+  // keyboard
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+  });
+
+  // touch
+  let startX = 0;
+  slides.addEventListener('touchstart', (e) => startX = e.touches[0].clientX, {passive:true});
+  slides.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (dx > 40) prevSlide();
+    if (dx < -40) nextSlide();
+  }, {passive:true});
+
+  // keep position correct on resize
+  window.addEventListener('resize', () => goTo(index));
+
+  // autoplay (pause when hidden)
+  let timer = setInterval(nextSlide, 6000);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) clearInterval(timer); else timer = setInterval(nextSlide, 6000);
+  });
+
+  goTo(0);
+})();
+</script>
 </body>
 </html>
