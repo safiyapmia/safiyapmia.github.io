@@ -13,136 +13,145 @@
     *{box-sizing:border-box} html{scroll-behavior:smooth}
     body{margin:0;background:linear-gradient(#fcfdff,#f6f8fb);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
     a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-    img{max-width:100%;height:auto;display:block}
+    img{display:block;max-width:100%;height:auto}
     .container{max-width:980px;margin:0 auto;padding:24px 16px}
     .site-header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--line);z-index:20}
     .nav{display:flex;align-items:center;justify-content:space-between}
     .nav a{margin:0 10px;font-weight:600;color:var(--muted)}
     .brand{font-weight:800}
     .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;border:1px solid transparent}
-    h1{font-size:clamp(26px,3.6vw,36px);margin:6px 0 18px}
-    h2{font-size:clamp(18px,2.6vw,22px);margin:0 0 6px}
-    .lead{color:var(--muted);margin-top:-6px}
-    .projects{display:grid;grid-template-columns:1fr;gap:14px}
-    .project{border:1px solid var(--line);border-radius:16px;background:var(--card);padding:16px}
-    .thumb{width:100%;height:220px;object-fit:contain;background:#f8fafc;border:1px solid var(--line);border-radius:12px;margin-bottom:10px}
-    .project .meta{color:var(--muted);font-size:14px;margin:2px 0 10px}
-    .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
-    .tag{font-size:12px;color:var(--muted);background:#f8fafc;border:1px solid var(--line);border-radius:999px;padding:3px 8px}
-    .actions{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
-    .actions a{display:inline-block;padding:8px 10px;border-radius:10px;border:1px solid var(--line);font-weight:600}
-    .actions a.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .site-footer{padding:40px 16px;text-align:center;color:var(--muted)}
+    h1{margin:6px 0 12px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .project{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px}
+    .thumb{border:1px solid var(--line);border-radius:10px;background:#fff;margin-bottom:10px}
+    .meta{color:var(--muted);font-weight:600;margin-top:-2px}
+    .row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+    .tag{border:1px solid var(--line);background:#fff;color:var(--muted);font-size:12px;border-radius:999px;padding:3px 8px}
+    .actions{display:flex;gap:10px;margin-top:8px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+
+    /* theme add-on */
+    :root{--bg:#f7fafc;--ink:#0b1220;--muted:#475569;--line:#e2e8f0;--card:#ffffff;--accent:#0ea5e9;--accent-2:#06b6d4}
+    body{
+      background:
+        radial-gradient(1100px 520px at 8% -6%, rgba(14,165,233,.10), transparent 60%),
+        radial-gradient(900px 420px at 105% 8%, rgba(6,182,212,.09), transparent 60%),
+        linear-gradient(#fcfdff,#f6f8fb);
+      color:var(--ink);
+    }
+    body::before{
+      content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+      background-image:
+        linear-gradient(rgba(2,132,199,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(2,132,199,.06) 1px, transparent 1px);
+      background-size:24px 24px;
+    }
+    header, main, footer, .container{ position:relative; z-index:1; }
+    .btn{ background:var(--accent); color:#fff; border:1px solid transparent; }
+    .btn:hover{ filter:brightness(1.05); text-decoration:none; }
+    .project{ background:var(--card); box-shadow:0 1px 0 rgba(2,6,23,.02); }
+    .nav a[aria-current="page"]{ color:var(--ink); position:relative; }
+    .nav a[aria-current="page"]::after{
+      content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2)); border-radius:2px;
+    }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <div class="brand">Safiya Palesa Mia</div>
-      <nav>
-        <a href="index.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="experience.html">Experience</a>
-        <a href="hobbies.html">Hobbies</a>
-        <a class="btn" href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <h1>Projects</h1>
-    <p class="lead">Short notes on what I did and why each matters for mechatronics.</p>
-
-    <section class="projects">
-      <!-- Thesis -->
-      <article class="project">
-        <img class="thumb" src="assets/images/exo.png" alt="Illustration of knee exoskeleton">
-        <h2>Honours Thesis — Biomechanics & Mechatronics (proposal stage)</h2>
-        <div class="meta">In progress · 2025</div>
-        <p>Exploring sensor-based human motion analysis and control for assistive/rehabilitation. Building a mechatronic pipeline—wearable sensing, signal processing, feedback control—with emphasis on safe, repeatable movement and real-world use.</p>
-        <div class="row"><span class="tag">Biomechanics</span><span class="tag">Mechatronics</span><span class="tag">Signal processing</span><span class="tag">Control</span></div>
-        <div class="actions">
-          <a class="primary" href="assets/Project_Proposal.pdf?v=2" target="_blank" rel="noopener">Open proposal (PDF)</a>
-        </div>
-      </article>
-
-<!-- Robust Digital Position Control -->
-<article class="project">
-  <img class="thumb" src="assets/images/servocontrol.png" alt="Servo and control loop illustration">
-  <h2>Robust Digital Position Control (EEE4118F)</h2>
-  <div class="meta">Individual GA (with lab partner integration)</div>
-  <p>Modelled a servo, designed a cascaded velocity–position controller, and implemented a discrete-time control law with anti-windup in C# / Simulink. Focused on robustness and matching simulation to lab behaviour.</p>
-  <div class="row"><span class="tag">Control</span><span class="tag">Discrete-time</span><span class="tag">C#</span><span class="tag">Simulink</span></div>
-  <div class="actions">
-    <a class="primary" href="assets/EEE4118F_2025_MXXSAF002_Controller_Implementation_and_GA_Report%20%281%29%20%281%29_compressed.pdf" target="_blank" rel="noopener">Open report (PDF)</a>
+<header class="site-header">
+  <div class="container nav">
+    <div class="brand"><a href="about.html" style="color:inherit;text-decoration:none;">Safiya Palesa Mia</a></div>
+    <nav>
+      <a href="about.html">About</a>
+      <a href="projects.html" aria-current="page">Projects</a>
+      <a href="experience.html">Skills & Experience</a>
+      <a href="hobbies.html">Hobbies</a>
+      <a class="btn" href="contact.html">Contact</a>
+    </nav>
   </div>
-</article>
+</header>
 
-<!-- FaunaWatch UI -->
-<article class="project">
-  <img class="thumb" src="assets/images/penguin%20monitoring.png" alt="Wildlife monitoring UI blocks">
-  <h2>FaunaWatch — Smart Predator Detection & Fence Monitoring (EEE4113F, Group 18)</h2>
-  <div class="meta">Role: Front-end</div>
-  <p>Built a lightweight, field-friendly web UI: password gate, media download routes, and Chart.js visuals for detection activity. Turns edge sensing into a usable dashboard for rangers.</p>
-  <div class="row"><span class="tag">Web UI</span><span class="tag">Flask</span><span class="tag">Chart.js</span><span class="tag">Edge systems</span></div>
-  <div class="actions">
-    <a class="primary" href="assets/EEE4113F_Group18_FinalReport_2025_compressed.pdf" target="_blank" rel="noopener">Open report (PDF)</a>
+<main class="container">
+  <h1>Projects</h1>
+  <div class="grid">
+
+    <!-- Knee Exoskeleton (Thesis) -->
+    <article class="project">
+      <img class="thumb" src="assets/images/exo.png" alt="Knee exoskeleton illustration">
+      <h2>Knee Exoskeleton — Assistive Biomechatronics (Thesis)</h2>
+      <div class="meta">In progress</div>
+      <p>Exploring low-cost actuation, sensing, and control for gait assistance. Focus: comfort, safety envelopes, and field maintainability.</p>
+      <div class="row"><span class="tag">Mechatronics</span><span class="tag">Biomechanics</span><span class="tag">Control</span></div>
+    </article>
+
+    <!-- Rocket/Asteroid Simulink -->
+    <article class="project">
+      <img class="thumb" src="assets/images/asteroid.png" alt="Simulink control model of a rocket/asteroid rendezvous">
+      <h2>Rocket–Asteroid Guidance (Simulink)</h2>
+      <div class="meta">Course project</div>
+      <p>Built a nonlinear model and guidance law in Simulink; validated step/impulse responses and tuning trade-offs.</p>
+      <div class="row"><span class="tag">Control</span><span class="tag">Simulink</span></div>
+    </article>
+
+    <!-- FaunaWatch UI (EEE4113F) -->
+    <article class="project">
+      <img class="thumb" src="assets/images/penguin%20monitoring.png" alt="Wildlife UI illustration">
+      <h2>FaunaWatch — Predator Detection & Fence Monitoring (EEE4113F, Group 18)</h2>
+      <div class="meta">Role: Front-end</div>
+      <p>Field-ready web UI: password gate, media downloads, Chart.js activity plots; turns edge detections into actionable dashboards.</p>
+      <div class="row"><span class="tag">Web UI</span><span class="tag">Flask</span><span class="tag">Chart.js</span></div>
+      <div class="actions">
+        <a class="btn" href="assets/EEE4113F_Group18_FinalReport_2025_compressed.pdf" target="_blank" rel="noopener">Open report</a>
+      </div>
+    </article>
+
+    <!-- IR Sensing PCB -->
+    <article class="project">
+      <img class="thumb" src="assets/images/sensing%20pcb.png" alt="Infrared sensing PCB illustration">
+      <h2>Infrared Sensing PCB</h2>
+      <div class="meta">Solo build</div>
+      <p>Prototype board for proximity/triggering tasks; emphasised test points, headers, and noise-aware routing.</p>
+      <div class="row"><span class="tag">Electronics</span><span class="tag">PCB</span></div>
+    </article>
+
+    <!-- Servo Control (EEE4118F) -->
+    <article class="project">
+      <img class="thumb" src="assets/images/servocontrol.png" alt="Servo loop illustration">
+      <h2>Robust Digital Position Control (EEE4118F)</h2>
+      <div class="meta">Individual GA (with lab integration)</div>
+      <p>Modelled plant, designed cascaded velocity–position control, implemented discrete-time law with anti-windup; matched sim ↔ lab behaviour.</p>
+      <div class="row"><span class="tag">Control</span><span class="tag">Discrete</span><span class="tag">Simulink</span></div>
+      <div class="actions">
+        <a class="btn" href="assets/EEE4118F_2025_MXXSAF002_Controller_Implementation_and_GA_Report%20%281%29%20%281%29_compressed.pdf" target="_blank" rel="noopener">Open report</a>
+      </div>
+    </article>
+
+    <!-- Micromouse -->
+    <article class="project">
+      <img class="thumb" src="assets/images/micromouse.png" alt="Micromouse robot illustration">
+      <h2>Micromouse — Final Design & Optimisation (EEE3099S, Group 21)</h2>
+      <div class="meta">Team project</div>
+      <p>Autonomous navigation state machine (priority-right, intersection handling, tune state) with Flood-Fill optimisation.</p>
+      <div class="row"><span class="tag">Robotics</span><span class="tag">Algorithms</span></div>
+      <div class="actions">
+        <a class="btn" href="assets/EEE3099S_Final_Report_Group21_compressed.pdf" target="_blank" rel="noopener">Open report</a>
+      </div>
+    </article>
+
+    <!-- Transformer project -->
+    <article class="project">
+      <img class="thumb" src="assets/images/transformer.png" alt="Transformer test illustration">
+      <h2>Power Transformer Characterisation</h2>
+      <div class="meta">Lab project</div>
+      <p>No-load/load tests, equivalent circuit parameters, and efficiency—tying measurements to theory.</p>
+      <div class="row"><span class="tag">Power</span><span class="tag">Measurement</span></div>
+    </article>
+
   </div>
-</article>
+</main>
 
-<!-- Micromouse final -->
-<article class="project">
-  <img class="thumb" src="assets/images/micromouse.png" alt="Micromouse robot in a maze">
-  <h2>Micromouse — Final Design & Optimisation (EEE3099S, Group 21)</h2>
-  <div class="meta">Team project</div>
-  <p>Designed an autonomous navigation state machine (priority-right, intersection handling, tune state) and began Flood-Fill optimisation. Demonstrated stable maze traversal; documented limits and next steps for real-time path updates.</p>
-  <div class="row"><span class="tag">Robotics</span><span class="tag">Algorithms</span><span class="tag">State machines</span></div>
-  <div class="actions">
-    <a class="primary" href="assets/EEE3099S_Final_Report_Group21_compressed.pdf" target="_blank" rel="noopener">Open report (PDF)</a>
-  </div>
-</article>
-
-
-      <!-- Micromouse IR PCB -->
-      <article class="project">
-        <img class="thumb" src="assets/images/sensing%20pcb.png" alt="IR sensing PCB illustration">
-        <h2>Micromouse Sensing Subsystem — IR Wall Detection (EEE3088F)</h2>
-        <div class="meta">Subsystem report (individual)</div>
-        <p>Specified and built the IR sensing PCB producing three analogue distance signals (front/left/right), integrated with STM32F0, and verified power-saving and ambient-light robustness against acceptance tests.</p>
-        <div class="row"><span class="tag">Sensors</span><span class="tag">PCB</span><span class="tag">Embedded</span></div>
-        <div class="actions">
-          <a class="primary" href="assets/MXXSAF002_Final_Report%20%282%29.pdf?v=2" target="_blank" rel="noopener">Open report (PDF)</a>
-        </div>
-      </article>
-
-      <!-- Kitticopter -->
-      <article class="project">
-        <img class="thumb" src="assets/images/asteroid.png" alt="Control diagram with rocket/asteroid vibe">
-        <h2>Kitticopter — Lead Compensator Design & Demo (EEE3094S)</h2>
-        <div class="meta">Lab project</div>
-        <p>Designed a lead compensator to meet overshoot, tracking and settling-time targets. Verified in MATLAB/Simulink and on the hardware rig; compared sim vs demo behaviour.</p>
-        <div class="row"><span class="tag">Control</span><span class="tag">Classical design</span><span class="tag">Hardware demo</span></div>
-        <div class="actions">
-          <a class="primary" href="assets/EEE3094S_Lab_3%20%281%29.pdf?v=2" target="_blank" rel="noopener">Open report (PDF)</a>
-        </div>
-      </article>
-
-      <!-- Transformer -->
-      <article class="project">
-        <img class="thumb" src="assets/images/transformer.png" alt="Transformer E-core with coils">
-        <h2>Single-Phase Transformer — Design, Build, Test (EEE2044S, Group 11)</h2>
-        <div class="meta">Team project</div>
-        <p>Designed a 3 VA, 15 V → 6 V shell-type transformer (50 Hz), calculated turns/core parameters, simulated in Ansys Maxwell, hand-wound, and tested ratio/efficiency in the lab.</p>
-        <div class="row"><span class="tag">Power</span><span class="tag">Simulation</span><span class="tag">Lab testing</span></div>
-        <div class="actions">
-          <a class="primary" href="assets/EEE2044S%202023%20Transformer%20Project%20Group%2011.pdf?v=2" target="_blank" rel="noopener">Open report (PDF)</a>
-        </div>
-      </article>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    © <script>document.write(new Date().getFullYear())</script> Safiya Palesa Mia
-  </footer>
+<footer class="site-footer" style="text-align:center;color:#475569;padding:40px 16px">
+  © <script>document.write(new Date().getFullYear())</script> Safiya Palesa Mia
+</footer>
 </body>
 </html>
