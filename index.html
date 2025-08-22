@@ -12,7 +12,7 @@
   <style>
     :root{
       /* Calm, readable palette */
-      --bg:#ffffff;           /* paper white */
+      --bg:#f6f8fb;   /* soft off-white */           /* paper white */
       --ink:#0f172a;          /* slate-900 */
       --muted:#475569;        /* slate-600 */
       --line:#e2e8f0;         /* slate-200 */
@@ -22,7 +22,7 @@
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
+    body{margin:0;background: linear-gradient(#fcfdff, #f6f8fb);  /* subtle, clean gradient */color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
     a{color:var(--accent);text-decoration:none}
     a:hover{text-decoration:underline}
 
@@ -43,7 +43,14 @@
 
     /* Hero */
     .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
-    .hero img{width:100%;border-radius:12px;border:1px solid var(--line);object-fit:cover;aspect-ratio:16/10}
+    .hero img {
+  width: 100%;
+  height: auto;          /* keeps full image */
+  object-fit: contain;   /* do not crop */
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
     .chips{display:flex;flex-wrap:wrap;gap:8px;margin:.6rem 0 1.2rem}
     .chip{padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-weight:600;font-size:12.5px;background:#fff}
 
@@ -106,7 +113,7 @@
             <a class="btn secondary" href="#experience">Highlights</a>
           </div>
         </div>
-        <img src="assets/images/ewb-hardhat-portrait.jpg" alt="Safiya wearing a hardhat (EWB)" />
+       <img src="assets/images/ewb-hardhat-portrait.jpg" alt="Safiya wearing a hardhat (EWB)" />
       </div>
     </section>
 
@@ -124,7 +131,7 @@
       <div class="gallery">
         <!-- Each card: image + two-line caption + light tags -->
         <article class="card col-6">
-          <img src="images/sarao-entrance.jpg" alt="At SARAO entrance" />
+          <img src="assets/images/sarao-entrance.jpg" alt="At SARAO entrance" />
           <div class="meta">
             <b>SARAO internship</b>
             <small>PCB build/test; CNC wiring; I²C/SPI/UART.</small>
@@ -132,7 +139,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src="images/oscilloscope-setup.jpg" alt="Oscilloscope and custom PCB" />
+          <img src="assets/images/oscilloscope-setup.jpg" alt="Oscilloscope and custom PCB" />
           <div class="meta">
             <b>Signal probing</b>
             <small>Oscilloscope debug on custom board.</small>
@@ -140,7 +147,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src="images/breadboard-circuit.jpg" alt="Breadboard discrete circuit" />
+          <img src="assets/images/breadboard-circuit.jpg" alt="Breadboard discrete circuit" />
           <div class="meta">
             <b>Discrete circuit build</b>
             <small>Prototyping & verification.</small>
@@ -148,7 +155,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src="images/control-panel-wiring.jpg" alt="Industrial control panel wiring" />
+          <img src="assets/images/control-panel-wiring.jpg" alt="Industrial control panel wiring" />
           <div class="meta">
             <b>Control panel wiring</b>
             <small>Neat routing, labelling, safety.</small>
@@ -156,7 +163,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src="images/danger-high-voltage.jpg" alt="High voltage site" />
+          <img src=assets/"images/danger-high-voltage.jpg" alt="High voltage site" />
           <div class="meta">
             <b>Power systems visit</b>
             <small>Safety, substations, HV equipment.</small>
@@ -164,7 +171,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src="images/wind-turbine-site.jpg" alt="Wind turbine site" />
+          <img src="assets/images/wind-turbine-site.jpg" alt="Wind turbine site" />
           <div class="meta">
             <b>Wind farm visit</b>
             <small>Renewable systems & site safety.</small>
@@ -172,7 +179,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src="images/lab-notes-pink.jpg" alt="Lab notes and laptop" />
+          <img src="assets/images/lab-notes-pink.jpg" alt="Lab notes and laptop" />
           <div class="meta">
             <b>Lab documentation</b>
             <small>Notes & data logging discipline.</small>
@@ -180,7 +187,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src="images/lab-panel-work.jpg" alt="Using lab power systems panel" />
+          <img src="assets/images/lab-panel-work.jpg" alt="Using lab power systems panel" />
           <div class="meta">
             <b>Power systems lab</b>
             <small>Measurement & controls.</small>
@@ -188,7 +195,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src="images/uct-mechatronics-lab-friends.jpg" alt="Team at UCT Mechatronics lab" />
+          <img src="assets/images/uct-mechatronics-lab-friends.jpg" alt="Team at UCT Mechatronics lab" />
           <div class="meta">
             <b>Team collaboration</b>
             <small>Shared methods and results.</small>
@@ -196,7 +203,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src="images/uct-mechatronics-sign-selfie.jpg" alt="UCT Mechatronics sign selfie" />
+          <img src="assets/images/uct-mechatronics-sign-selfie.jpg" alt="UCT Mechatronics sign selfie" />
           <div class="meta">
             <b>Mechatronics community</b>
             <small>Society & lab engagement.</small>
@@ -204,7 +211,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src="images/desktop-breadboard-software.jpg" alt="Breadboard with software monitor" />
+          <img src="assets/images/desktop-breadboard-software.jpg" alt="Breadboard with software monitor" />
           <div class="meta">
             <b>Hardware ↔ software loop</b>
             <small>Instrumentation + analysis.</small>
@@ -212,7 +219,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src="images/workshop-safety-glasses.jpg" alt="Workshop with safety glasses" />
+          <img src="assets/images/workshop-safety-glasses.jpg" alt="Workshop with safety glasses" />
           <div class="meta">
             <b>Manufacturing workshop</b>
             <small>Measurement & fabrication basics.</small>
@@ -220,7 +227,7 @@
           </div>
         </article>
         <article class="card col-6">
-          <img src="images/lab-collab-hoodie.jpg" alt="Lab collaboration" />
+          <img src="assets/images/lab-collab-hoodie.jpg" alt="Lab collaboration" />
           <div class="meta">
             <b>Peer mentoring</b>
             <small>Teaching and learning in teams.</small>
