@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Experience — Safiya Palesa Mia</title>
+  <title>Skills & Experience — Safiya Palesa Mia</title>
 
-  <!-- INLINE CRITICAL CSS (same base as about.html, plus timeline styles) -->
+  <!-- INLINE CRITICAL CSS (base + carousel styles) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -15,6 +15,7 @@
     body{margin:0;background:linear-gradient(#fcfdff,#f6f8fb);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
     a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
     img{max-width:100%;height:auto;display:block}
+
     .container{max-width:980px;margin:0 auto;padding:24px 16px}
     .site-header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--line);z-index:20}
     .nav{display:flex;align-items:center;justify-content:space-between}
@@ -22,13 +23,33 @@
     .brand{font-weight:800}
     .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;border:1px solid transparent}
     .site-footer{padding:40px 16px;text-align:center;color:var(--muted)}
+
+    h1{margin:6px 0 12px}
+    .lead{color:var(--muted);margin:-6px 0 14px}
+
+    /* Carousel */
+    .carousel{position:relative;border:1px solid var(--line);border-radius:16px;background:var(--card);overflow:hidden}
+    .slides{height:520px;display:flex;transition:transform .4s ease}
+    .slide{min-width:100%;height:520px;position:relative;background:#fff;display:flex;align-items:center;justify-content:center}
+    .slide img{width:100%;height:100%;object-fit:contain; /* show whole photo, no crop */ background:#fff}
+    .slide figcaption{position:absolute;left:0;right:0;bottom:0;color:#0b1220;background:linear-gradient(transparent,rgba(255,255,255,.92));padding:12px 14px;font-weight:600}
+    .nav-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:1px solid var(--line);color:#0b1220;font-size:24px;line-height:1;border-radius:10px;padding:8px 12px;cursor:pointer}
+    .nav-btn:hover{background:#fff}
+    .prev{left:12px} .next{right:12px}
+    .dots{position:absolute;left:0;right:0;bottom:10px;display:flex;gap:8px;justify-content:center}
+    .dots button{width:8px;height:8px;border-radius:50%;border:0;background:#cbd5e1;opacity:.9}
+    .dots button.active{background:#0f172a}
+
     /* Timeline */
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
     .timeline{border-left:2px solid var(--line);padding-left:14px}
     .t{margin:10px 0}
     .t b{display:block}
     .when{color:var(--muted);font-weight:600}
-    @media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+    @media (max-width:900px){
+      .slides,.slide{height:420px}
+      .grid-2{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
@@ -36,8 +57,7 @@
     <div class="container nav">
       <div class="brand">Safiya Palesa Mia</div>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
+        <a href="index.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="experience.html">Experience</a>
         <a href="hobbies.html">Hobbies</a>
@@ -47,7 +67,84 @@
   </header>
 
   <main class="container">
-    <h1>Experience — Highlights</h1>
+    <h1>Skills & Experience</h1>
+    <p class="lead">A quick look at hands-on skills and contexts I’ve worked in.</p>
+
+    <!-- SKILLS CAROUSEL -->
+    <section class="carousel" aria-label="Skills photo carousel">
+      <button class="nav-btn prev" aria-label="Previous">‹</button>
+      <div class="slides" id="slides">
+        <!-- 1 -->
+        <figure class="slide">
+          <img src="assets/images/sarao-entrance.jpg" alt="At SARAO entrance" />
+          <figcaption>SARAO internship — industry exposure; electronics build/test.</figcaption>
+        </figure>
+        <!-- 2 -->
+        <figure class="slide">
+          <img src="assets/images/oscilloscope-setup.jpg" alt="Oscilloscope probing on a custom PCB" />
+          <figcaption>Oscilloscope probing — measurement & debug on custom boards.</figcaption>
+        </figure>
+        <!-- 3 -->
+        <figure class="slide">
+          <img src="assets/images/breadboard-circuit.jpg" alt="Breadboard discrete circuit" />
+          <figcaption>Discrete circuits — prototyping & verification.</figcaption>
+        </figure>
+        <!-- 4 -->
+        <figure class="slide">
+          <img src="assets/images/control-panel-wiring.jpg" alt="Industrial control panel wiring" />
+          <figcaption>Control panel wiring — neat routing, labelling, safety practice.</figcaption>
+        </figure>
+        <!-- 5 -->
+        <figure class="slide">
+          <img src="assets/images/danger-high-voltage.jpg" alt="High voltage site" />
+          <figcaption>High-voltage visit — safety culture; power systems awareness.</figcaption>
+        </figure>
+        <!-- 6 -->
+        <figure class="slide">
+          <img src="assets/images/wind-turbine-site.jpg" alt="Wind turbine site" />
+          <figcaption>Renewables — wind farm systems & site safety.</figcaption>
+        </figure>
+        <!-- 7 -->
+        <figure class="slide">
+          <img src="assets/images/lab-notes-pink.jpg" alt="Lab notes and laptop" />
+          <figcaption>Documentation — disciplined notes & data logging.</figcaption>
+        </figure>
+        <!-- 8 -->
+        <figure class="slide">
+          <img src="assets/images/lab-panel-work.jpg" alt="Using a power systems lab panel" />
+          <figcaption>Power systems lab — measurement & controls.</figcaption>
+        </figure>
+        <!-- 9 -->
+        <figure class="slide">
+          <img src="assets/images/uct-mechatronics-lab-friends.jpg" alt="Team at UCT Mechatronics lab" />
+          <figcaption>Teamwork — shared methods, review, and results.</figcaption>
+        </figure>
+        <!-- 10 -->
+        <figure class="slide">
+          <img src="assets/images/uct-mechatronics-sign-selfie.jpg" alt="UCT Mechatronics sign selfie" />
+          <figcaption>Community — active engagement in the mechatronics society.</figcaption>
+        </figure>
+        <!-- 11 -->
+        <figure class="slide">
+          <img src="assets/images/desktop-breadboard-software.jpg" alt="Breadboard with software monitor on desktop" />
+          <figcaption>Hardware ↔ software — instrumentation and analysis loop.</figcaption>
+        </figure>
+        <!-- 12 -->
+        <figure class="slide">
+          <img src="assets/images/workshop-safety-glasses.jpg" alt="Manufacturing workshop with safety glasses" />
+          <figcaption>Workshop — measurement & fabrication basics.</figcaption>
+        </figure>
+        <!-- 13 -->
+        <figure class="slide">
+          <img src="assets/images/lab-collab-hoodie.jpg" alt="Lab collaboration with peers" />
+          <figcaption>Peer mentoring — teaching and learning in teams.</figcaption>
+        </figure>
+      </div>
+      <button class="nav-btn next" aria-label="Next">›</button>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+    </section>
+
+    <!-- EXPERIENCE TIMELINE (kept from your page) -->
     <div class="grid-2">
       <div>
         <div class="timeline">
@@ -69,5 +166,70 @@
   <footer class="site-footer">
     © <script>document.write(new Date().getFullYear())</script> Safiya Palesa Mia
   </footer>
+
+  <!-- Tiny inline JS for the carousel -->
+  <script>
+  (function () {
+    const slides = document.getElementById('slides');
+    if (!slides) return;
+
+    const figures = Array.from(slides.querySelectorAll('.slide'));
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    const dots = document.getElementById('dots');
+
+    let index = 0;
+    const count = figures.length;
+
+    // build dots
+    figures.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.addEventListener('click', () => goTo(i));
+      dots.appendChild(d);
+    });
+
+    function updateDots() {
+      dots.querySelectorAll('button').forEach((b, i) => {
+        b.classList.toggle('active', i === index);
+      });
+    }
+
+    function goTo(i) {
+      index = (i + count) % count;
+      slides.style.transform = 'translateX(-' + (index * 100) + '%)';
+      updateDots();
+    }
+
+    function nextSlide() { goTo(index + 1); }
+    function prevSlide() { goTo(index - 1); }
+
+    next.addEventListener('click', nextSlide);
+    prev.addEventListener('click', prevSlide);
+
+    // keyboard nav
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    // touch swipe
+    let startX = 0;
+    slides.addEventListener('touchstart', (e) => startX = e.touches[0].clientX, {passive:true});
+    slides.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (dx > 40) prevSlide();
+      if (dx < -40) nextSlide();
+    }, {passive:true});
+
+    // autoplay (pause when tab hidden)
+    let timer = setInterval(nextSlide, 6000);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { clearInterval(timer); }
+      else { timer = setInterval(nextSlide, 6000); }
+    });
+
+    goTo(0);
+  })();
+  </script>
 </body>
 </html>
