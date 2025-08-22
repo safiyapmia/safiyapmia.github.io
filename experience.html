@@ -14,75 +14,72 @@
     body{margin:0;background:linear-gradient(#fcfdff,#f6f8fb);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.65}
     a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
     img{display:block}
-
     .container{max-width:980px;margin:0 auto;padding:24px 16px}
     .site-header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:saturate(120%) blur(6px);border-bottom:1px solid var(--line);z-index:20}
     .nav{display:flex;align-items:center;justify-content:space-between}
     .nav a{margin:0 10px;font-weight:600;color:var(--muted)}
     .brand{font-weight:800}
     .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;border:1px solid transparent}
-    .site-footer{padding:40px 16px;text-align:center;color:var(--muted)}
     h1{margin:6px 0 12px}
     .lead{color:var(--muted);margin:-6px 0 14px}
 
-    /* ===== Carousel (centered, pixel-precise, bigger + dots below) ===== */
-    .carousel{
-      position:relative;border:1px solid var(--line);border-radius:16px;background:var(--card);
-      overflow:hidden;max-width:720px;margin:0 auto 24px;
-    }
+    /* Carousel */
+    .carousel{position:relative;border:1px solid var(--line);border-radius:16px;background:var(--card);
+      overflow:hidden;max-width:720px;margin:0 auto 24px;}
     .viewport{width:100%;overflow:hidden}
     .slides{display:flex;gap:0;will-change:transform;transition:transform .4s ease}
-    figure{margin:0} /* kill default figure margins */
-    .slide{width:100%;flex:0 0 100%;max-width:100%;background:#fff;padding:0;border:0}
-    .media{
-      width:100%;height:240px;padding:10px;border-bottom:1px solid var(--line);
-      display:flex;align-items:center;justify-content:center;background:#fff;
-    }
-    .media img{
-      max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;object-position:center;background:#fff;
-    }
-    figcaption{
-      padding:10px 12px;background:#f8fafc;border-top:1px solid var(--line);
-      color:var(--ink);font-weight:600;line-height:1.35;font-size:.95rem;
-    }
-    .nav-btn{
-      position:absolute;top:48%;transform:translateY(-50%);z-index:5;
-      background:rgba(255,255,255,.95);border:1px solid var(--line);color:#0b1220;
-      font-size:20px;line-height:1;border-radius:10px;padding:6px 10px;cursor:pointer;
-    }
+    figure{margin:0}
+    .slide{width:100%;flex:0 0 100%;max-width:100%;background:#fff}
+    .media{width:100%;height:240px;padding:10px;display:flex;align-items:center;justify-content:center;background:#fff;border-bottom:1px solid var(--line)}
+    .media img{max-width:100%;max-height:100%;object-fit:contain;object-position:center}
+    figcaption{padding:10px 12px;background:#f8fafc;border-top:1px solid var(--line);color:var(--ink);font-weight:600;line-height:1.35;font-size:.95rem}
+    .nav-btn{position:absolute;top:48%;transform:translateY(-50%);z-index:5;background:rgba(255,255,255,.95);border:1px solid var(--line);color:#0b1220;font-size:20px;line-height:1;border-radius:10px;padding:6px 10px;cursor:pointer}
     .nav-btn:hover{background:#fff}
     .prev{left:10px} .next{right:10px}
-
-    /* dots now sit BELOW the slide/caption, not overlaying */
-    .dots{
-      position:static;display:flex;justify-content:center;gap:6px;
-      padding:8px 0 2px;margin:6px 0 0;background:#fff;border-top:1px solid var(--line);
-    }
+    .dots{position:static;display:flex;justify-content:center;gap:6px;padding:8px 0 2px;margin:6px 0 0;background:#fff;border-top:1px solid var(--line)}
     .dots button{width:7px;height:7px;border-radius:50%;border:0;background:#cbd5e1;opacity:.9}
     .dots button.active{background:#0f172a}
 
-    /* ===== Timeline ===== */
+    /* Timeline */
     .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
     .timeline{border-left:2px solid var(--line);padding-left:14px}
-    .t{margin:10px 0}
-    .t b{display:block}
-    .when{color:var(--muted);font-weight:600}
+    .t{margin:10px 0}.t b{display:block}.when{color:var(--muted);font-weight:600}
+    @media (max-width:900px){.carousel{max-width:100%}.media{height:210px}.grid-2{grid-template-columns:1fr}}
 
-    @media (max-width:900px){
-      .carousel{max-width:100%}
-      .media{height:210px}
-      .grid-2{grid-template-columns:1fr}
+    /* theme add-on */
+    :root{--bg:#f7fafc;--ink:#0b1220;--muted:#475569;--line:#e2e8f0;--card:#ffffff;--accent:#0ea5e9;--accent-2:#06b6d4}
+    body{
+      background:
+        radial-gradient(1100px 520px at 8% -6%, rgba(14,165,233,.10), transparent 60%),
+        radial-gradient(900px 420px at 105% 8%, rgba(6,182,212,.09), transparent 60%),
+        linear-gradient(#fcfdff,#f6f8fb);
+      color:var(--ink);
+    }
+    body::before{
+      content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+      background-image:
+        linear-gradient(rgba(2,132,199,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(2,132,199,.06) 1px, transparent 1px);
+      background-size:24px 24px;
+    }
+    header, main, footer, .container{ position:relative; z-index:1; }
+    .btn{ background:var(--accent); color:#fff; border:1px solid transparent; }
+    .btn:hover{ filter:brightness(1.05); text-decoration:none; }
+    .nav a[aria-current="page"]{ color:var(--ink); position:relative; }
+    .nav a[aria-current="page"]::after{
+      content:""; position:absolute; left:0; right:0; bottom:-6px; height:2px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-2)); border-radius:2px;
     }
   </style>
 </head>
 <body>
 <header class="site-header">
   <div class="container nav">
-    <div class="brand">Safiya Palesa Mia</div>
+    <div class="brand"><a href="about.html" style="color:inherit;text-decoration:none;">Safiya Palesa Mia</a></div>
     <nav>
-      <a href="index.html">About</a>
+      <a href="about.html">About</a>
       <a href="projects.html">Projects</a>
-      <a href="experience.html">Experience</a>
+      <a href="experience.html" aria-current="page">Skills & Experience</a>
       <a href="hobbies.html">Hobbies</a>
       <a class="btn" href="contact.html">Contact</a>
     </nav>
@@ -93,7 +90,6 @@
   <h1>Skills & Experience</h1>
   <p class="lead">A quick look at hands-on skills and contexts I’ve worked in.</p>
 
-  <!-- CAROUSEL -->
   <section class="carousel" id="carousel" aria-label="Skills photo carousel">
     <button class="nav-btn prev" aria-label="Previous">‹</button>
     <div class="viewport">
@@ -117,7 +113,6 @@
     <div class="dots" id="dots" aria-hidden="true"></div>
   </section>
 
-  <!-- EXPERIENCE TIMELINE -->
   <div class="grid-2">
     <div>
       <div class="timeline">
@@ -136,7 +131,7 @@
   </div>
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer" style="text-align:center;color:#475569;padding:40px 16px">
   © <script>document.write(new Date().getFullYear())</script> Safiya Palesa Mia
 </footer>
 
@@ -151,10 +146,8 @@
   const next = carousel.querySelector('.next');
   const dots = document.getElementById('dots');
 
-  let index = 0;
-  const count = figures.length;
+  let index = 0, count = figures.length;
 
-  // build dots
   figures.forEach((_, i) => {
     const d = document.createElement('button');
     d.addEventListener('click', () => goTo(i));
@@ -163,29 +156,18 @@
 
   function frameWidth(){ return carousel.querySelector('.viewport').clientWidth; }
   function updateDots(){ dots.querySelectorAll('button').forEach((b,i)=>b.classList.toggle('active', i===index)); }
-
-  function goTo(i){
-    index = (i + count) % count;
-    slides.style.transform = 'translateX(' + (-frameWidth() * index) + 'px)';
-    updateDots();
-  }
-
+  function goTo(i){ index = (i + count) % count; slides.style.transform = 'translateX(' + (-frameWidth() * index) + 'px)'; updateDots(); }
   function nextSlide(){ goTo(index+1); }
   function prevSlide(){ goTo(index-1); }
 
   next.addEventListener('click', nextSlide);
   prev.addEventListener('click', prevSlide);
-
-  // keyboard
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') nextSlide();
-    if (e.key === 'ArrowLeft') prevSlide();
-  });
+  window.addEventListener('keydown', e => { if(e.key==='ArrowRight') nextSlide(); if(e.key==='ArrowLeft') prevSlide(); });
 
   // touch
   let startX = 0;
-  slides.addEventListener('touchstart', (e) => startX = e.touches[0].clientX, {passive:true});
-  slides.addEventListener('touchend', (e) => {
+  slides.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+  slides.addEventListener('touchend', e => {
     const dx = e.changedTouches[0].clientX - startX;
     if (dx > 40) prevSlide();
     if (dx < -40) nextSlide();
