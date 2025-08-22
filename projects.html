@@ -20,6 +20,7 @@
     .nav a{margin:0 10px;font-weight:600;color:var(--muted)}
     .brand{font-weight:800}
     .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;border:1px solid transparent}
+    .btn.secondary{background:#fff;color:var(--accent);border-color:var(--accent)}
     h1{margin:6px 0 12px}
     .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
     .project{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px}
@@ -27,7 +28,7 @@
     .meta{color:var(--muted);font-weight:600;margin-top:-2px}
     .row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
     .tag{border:1px solid var(--line);background:#fff;color:var(--muted);font-size:12px;border-radius:999px;padding:3px 8px}
-    .actions{display:flex;gap:10px;margin-top:8px}
+    .actions{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
     @media (max-width:900px){.grid{grid-template-columns:1fr}}
 
     /* theme add-on */
@@ -49,6 +50,7 @@
     header, main, footer, .container{ position:relative; z-index:1; }
     .btn{ background:var(--accent); color:#fff; border:1px solid transparent; }
     .btn:hover{ filter:brightness(1.05); text-decoration:none; }
+    .btn.secondary:hover{ filter:none; }
     .project{ background:var(--card); box-shadow:0 1px 0 rgba(2,6,23,.02); }
     .nav a[aria-current="page"]{ color:var(--ink); position:relative; }
     .nav a[aria-current="page"]::after{
@@ -82,6 +84,10 @@
       <div class="meta">In progress</div>
       <p>Exploring low-cost actuation, sensing, and control for gait assistance. Focus: comfort, safety envelopes, and field maintainability.</p>
       <div class="row"><span class="tag">Mechatronics</span><span class="tag">Biomechanics</span><span class="tag">Control</span></div>
+      <div class="actions">
+        <a class="btn" href="assets/Project_Proposal.pdf" target="_blank" rel="noopener">Open proposal</a>
+        <a class="btn secondary" href="assets/Project_Proposal.pdf" download>Download</a>
+      </div>
     </article>
 
     <!-- Rocket/Asteroid Simulink -->
@@ -91,6 +97,7 @@
       <div class="meta">Course project</div>
       <p>Built a nonlinear model and guidance law in Simulink; validated step/impulse responses and tuning trade-offs.</p>
       <div class="row"><span class="tag">Control</span><span class="tag">Simulink</span></div>
+      <!-- Add links here later if you upload a PDF -->
     </article>
 
     <!-- FaunaWatch UI (EEE4113F) -->
@@ -102,6 +109,7 @@
       <div class="row"><span class="tag">Web UI</span><span class="tag">Flask</span><span class="tag">Chart.js</span></div>
       <div class="actions">
         <a class="btn" href="assets/EEE4113F_Group18_FinalReport_2025_compressed.pdf" target="_blank" rel="noopener">Open report</a>
+        <a class="btn secondary" href="assets/EEE4113F_Group18_FinalReport_2025_compressed.pdf" download>Download</a>
       </div>
     </article>
 
@@ -112,6 +120,7 @@
       <div class="meta">Solo build</div>
       <p>Prototype board for proximity/triggering tasks; emphasised test points, headers, and noise-aware routing.</p>
       <div class="row"><span class="tag">Electronics</span><span class="tag">PCB</span></div>
+      <!-- Add links here later if you upload a PDF -->
     </article>
 
     <!-- Servo Control (EEE4118F) -->
@@ -123,6 +132,7 @@
       <div class="row"><span class="tag">Control</span><span class="tag">Discrete</span><span class="tag">Simulink</span></div>
       <div class="actions">
         <a class="btn" href="assets/EEE4118F_2025_MXXSAF002_Controller_Implementation_and_GA_Report%20%281%29%20%281%29_compressed.pdf" target="_blank" rel="noopener">Open report</a>
+        <a class="btn secondary" href="assets/EEE4118F_2025_MXXSAF002_Controller_Implementation_and_GA_Report%20%281%29%20%281%29_compressed.pdf" download>Download</a>
       </div>
     </article>
 
@@ -135,6 +145,7 @@
       <div class="row"><span class="tag">Robotics</span><span class="tag">Algorithms</span></div>
       <div class="actions">
         <a class="btn" href="assets/EEE3099S_Final_Report_Group21_compressed.pdf" target="_blank" rel="noopener">Open report</a>
+        <a class="btn secondary" href="assets/EEE3099S_Final_Report_Group21_compressed.pdf" download>Download</a>
       </div>
     </article>
 
@@ -145,6 +156,10 @@
       <div class="meta">Lab project</div>
       <p>No-load/load tests, equivalent circuit parameters, and efficiency—tying measurements to theory.</p>
       <div class="row"><span class="tag">Power</span><span class="tag">Measurement</span></div>
+      <div class="actions">
+        <a class="btn" href="assets/EEE2044S%202023%20Transformer%20Project%20Group%2011.pdf" target="_blank" rel="noopener">Open report</a>
+        <a class="btn secondary" href="assets/EEE2044S%202023%20Transformer%20Project%20Group%2011.pdf" download>Download</a>
+      </div>
     </article>
 
   </div>
@@ -155,3 +170,4 @@
 </footer>
 </body>
 </html>
+
