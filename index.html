@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home — Safiya Palesa Mia</title>
+  <title>Safiya Palesa Mia</title>
 
-  <!-- INLINE CRITICAL CSS (same base as about.html, plus landing tiles) -->
+  <!-- INLINE CRITICAL CSS (same as your working about.html) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -21,17 +21,11 @@
     .nav a{margin:0 10px;font-weight:600;color:var(--muted)}
     .brand{font-weight:800}
     .btn{display:inline-block;padding:8px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;border:1px solid transparent}
+    .panel{border:1px solid var(--line);border-radius:16px;background:#fff;padding:22px}
+    .two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
+    .photo{border-radius:12px;border:1px solid var(--line);object-fit:cover;max-height:520px;width:100%}
     .site-footer{padding:40px 16px;text-align:center;color:var(--muted)}
-
-    /* Landing tiles */
-    .hero{padding:12px 0 8px}
-    .hero h1{margin:0}
-    .muted{color:var(--muted)}
-    .button-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:18px}
-    .tile{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;justify-content:space-between}
-    .tile b{font-size:1.05rem;color:var(--ink)}
-    .tile span{color:var(--muted);font-size:.95rem;margin-top:4px}
-    .quick{margin-top:14px;font-size:.95rem}
+    @media (max-width:900px){.two-col{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -40,7 +34,6 @@
       <div class="brand">Safiya Palesa Mia</div>
       <nav>
         <a href="index.html">Home</a>
-        <a href="about.html">About</a>
         <a href="projects.html">Projects</a>
         <a href="experience.html">Experience</a>
         <a href="hobbies.html">Hobbies</a>
@@ -50,34 +43,18 @@
   </header>
 
   <main class="container">
-    <section class="hero">
-      <h1>Hi, I am Safiya Palesa Mia.</h1>
-      <p class="muted">Mechatronic Engineering student from South Africa.</p>
-
-      <div class="button-grid">
-        <a class="tile" href="about.html">
-          <b>About</b>
-          <span>Who I am & why engineering</span>
-        </a>
-        <a class="tile" href="projects.html">
-          <b>Projects</b>
-          <span>Selected work & artefacts</span>
-        </a>
-        <a class="tile" href="experience.html">
-          <b>Experience</b>
-          <span>Highlights & roles</span>
-        </a>
-        <a class="tile" href="hobbies.html">
-          <b>Hobbies</b>
-          <span>Full-size photo slideshow</span>
-        </a>
-        <a class="tile" href="contact.html">
-          <b>Contact</b>
-          <span>Say hello / CV / links</span>
-        </a>
+    <section class="panel two-col">
+      <div>
+        <h1>Hi, I am Safiya Palesa Mia.</h1>
+        <p>I am a Mechatronic Engineering student from South Africa.</p>
+        <p>My name tells my story: <b>Safiya</b> comes from my faith, Islam; <b>Palesa</b> is Sotho, from the country where I was born and raised; and <b>Mia</b> is my Indian family name. Together they remind me of the beauty of diversity and why equality matters.</p>
+        <p>I chose engineering because I’ve always enjoyed making and fixing things, from small hacks at home to more ambitious projects. I’m curious, I like solving problems, and I want to use that to create technology that is practical and useful—especially here in Africa.</p>
+        <p>I believe good engineering is not just about neat wiring, clean code, and working systems—it’s also about people. For me, teamwork, teaching, and designing inclusively are as important as the technical details.</p>
+        <p>My goal is simple: to raise the standard of living through mechatronics that is affordable, maintainable, and actually gets used.</p>
       </div>
-
-      <p class="quick">CV: <a href="assets/Safiya_Palesa_Mia_Resume.pdf" target="_blank" rel="noopener">Download PDF</a></p>
+      <div>
+        <img class="photo" src="assets/images/ewb-hardhat-portrait.jpg" alt="Safiya wearing a hardhat (EWB)">
+      </div>
     </section>
   </main>
 
