@@ -40,12 +40,13 @@
     .dots button{width:7px;height:7px;border-radius:50%;border:0;background:#cbd5e1;opacity:.9}
     .dots button.active{background:#0f172a}
 
-    /* Timeline */
-    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:18px}
+    /* Two-column timelines */
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:18px}
     .timeline{border-left:2px solid var(--line);padding-left:14px}
+    .timeline h2{margin:0 0 10px;font-size:1.2rem;color:var(--ink)}
     .t{margin:10px 0}.t b{display:block}.when{color:var(--muted);font-weight:600}
     @media (max-width:900px){.carousel{max-width:100%}.media{height:210px}.grid-2{grid-template-columns:1fr}}
-
+    
     /* theme add-on */
     :root{--bg:#f7fafc;--ink:#0b1220;--muted:#475569;--line:#e2e8f0;--card:#ffffff;--accent:#0ea5e9;--accent-2:#06b6d4}
     body{
@@ -88,9 +89,9 @@
 
 <main class="container">
   <h1>Skills & Experience</h1>
-  <p class="lead">A quick look at hands-on skills and contexts I’ve worked in.</p>
+  <p class="lead">A quick look at hands-on skills, leadership, and work experience.</p>
 
-  <!-- Carousel -->
+  <!-- Skills carousel -->
   <section class="carousel" id="carousel" aria-label="Skills photo carousel">
     <button class="nav-btn prev" aria-label="Previous">‹</button>
     <div class="viewport">
@@ -114,24 +115,25 @@
     <div class="dots" id="dots" aria-hidden="true"></div>
   </section>
 
-  <!-- Timeline -->
+  <!-- Leadership & Work Experience -->
   <div class="grid-2">
     <div>
       <div class="timeline">
-        <div class="t"><b>Executive Member — UCT AI Society</b><div class="when">Jun 2023 – Present</div><div>Founded community; ran expert panels.</div></div>
-        <div class="t"><b>Secretary General — EWB-UCT</b><div class="when">Nov 2022 – Nov 2023</div><div>Human-Centred Design workshop; first-year orientation.</div></div>
-        <div class="t"><b>Women Accelerate — Bain & Company</b><div class="when">Dec 2023</div><div>Leadership & strategy intensives.</div></div>
-        <div class="t"><b>Class Representative & Junior Dept Rep — UCT Mechatronics</b><div class="when">2024 Academic Year</div><div>Elected by peers to represent cohort and department-level concerns.</div></div>
+        <h2>Leadership</h2>
+        <div class="t"><b>Executive Member — UCT AI Society</b><div class="when">Jun 2023 – Present</div><div>Founded a student community; organised expert panels and events.</div></div>
+        <div class="t"><b>Secretary General — EWB-UCT</b><div class="when">Nov 2022 – Nov 2023</div><div>Ran Human-Centred Design workshops and orientation programmes.</div></div>
+        <div class="t"><b>Class Rep & Junior Dept Rep — UCT Mechatronics</b><div class="when">2024 Academic Year</div><div>Elected to represent peers at class and departmental level.</div></div>
+        <div class="t"><b>Women Accelerate — Bain & Company</b><div class="when">Dec 2023</div><div>Selected for a leadership and strategy programme.</div></div>
       </div>
     </div>
     <div>
       <div class="timeline">
-        <div class="t"><b>Globeleq Internship — Analytics Team (Operations)</b><div class="when">Jan – Feb 2025</div>
-          <div>Worked on renewable energy systems: built UPS & ventilation trackers with AVEVA PI Vision; analysed solar combiner-box power loss; assessed wind turbine performance using meteorological data. Attended controller testing sessions and visited Klipheuwel Wind Turbine 10.</div></div>
-        <div class="t"><b>Maverick International Internship</b><div class="when">Jul 2025 (2 weeks)</div><div>Hands-on electrical experience: wired a full industrial control panel from scratch, applying safety standards, documentation, and practical fabrication skills.</div></div>
-        <div class="t"><b>RPA Team — Old Mutual</b><div class="when">Jul 2023</div><div>Bizagi & Blue Prism; JSON/API integrations.</div></div>
-        <div class="t"><b>Junior Electronics — SARAO</b><div class="when">Jun 2022</div><div>CNC wiring; PCB build/test; I²C/SPI/UART; Python plots.</div></div>
-        <div class="t"><b>Course Tutor — UCT EE</b><div class="when">Aug – Nov 2023</div><div>EEE1007S: power, renewables, circuits.</div></div>
+        <h2>Work Experience</h2>
+        <div class="t"><b>Maverick International — Intern</b><div class="when">Jul 2025 (2 weeks)</div><div>Wired an industrial control panel from scratch, applying safety standards and fabrication practices.</div></div>
+        <div class="t"><b>Globeleq — Analytics Team (Operations)</b><div class="when">Jan – Feb 2025</div><div>Built PI Vision trackers, analysed solar combiner-box losses, assessed wind turbine performance, and visited Klipheuwel Wind Farm.</div></div>
+        <div class="t"><b>RPA Team — Old Mutual</b><div class="when">Jul 2023</div><div>Used Bizagi & Blue Prism for process automation; JSON/API integrations.</div></div>
+        <div class="t"><b>Junior Electronics — SARAO</b><div class="when">Jun 2022</div><div>Hands-on electronics: CNC wiring, PCB build/test, I²C/SPI/UART, Python plots.</div></div>
+        <div class="t"><b>Course Tutor — UCT EE</b><div class="when">Aug – Nov 2023</div><div>Tutored first-year course (EEE1007S): power, renewables, circuits.</div></div>
       </div>
     </div>
   </div>
